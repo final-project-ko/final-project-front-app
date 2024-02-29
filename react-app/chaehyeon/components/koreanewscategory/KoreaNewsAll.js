@@ -4,7 +4,7 @@ import {useNavigation} from "@react-navigation/native";
 import {useEffect, useState} from "react";
 
 
-const News =()=> {
+const KoreaNewsAll =()=> {
 
     const navigation = useNavigation();
 
@@ -182,7 +182,7 @@ const News =()=> {
 
 }
 
-export default News;
+export default KoreaNewsAll;
 
 const styles= StyleSheet.create({
     container: {

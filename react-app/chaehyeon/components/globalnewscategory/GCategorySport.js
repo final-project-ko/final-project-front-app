@@ -2,42 +2,43 @@ import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react
 import {useNavigation} from "@react-navigation/native";
 import React, {useEffect, useState} from "react";
 
-const EScreen = () =>{
+<<<<<<< HEAD:react-app/chaehyeon/components/FScreen.js
+const FScreen = () =>{
     const navigation = useNavigation();
 
-    const [scienceArticles, setScienceArticles] = useState([]);
+    const [sportsArticles, setSportsArticles] = useState([]);
 
-    let science = "kr_science";
+    let sports = "kr_sports";
 
 
     useEffect(() => {
         const fetchCategoryNews = async () => {
             try {
-                const responseSci = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${science}`);
-                const dataSci = await responseSci.json();
-                setScienceArticles(dataSci.articles);
+                const responseSports = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${sports}`);
+                const dataSports = await responseSports.json();
+                setSportsArticles(dataSports.articles);
             } catch (error) {
                 console.log("Error fetching data", error);
             }
         };
         fetchCategoryNews();
-    }, [science]);
+    }, [sports]);
 
     const renderArticles = () => {
         const itemsPerRow = 2;
         const rows = [];
-        for (let i = 0; i < scienceArticles.length; i += itemsPerRow) {
+        for (let i = 0; i < sportsArticles.length; i += itemsPerRow) {
             const rowItems = [];
-            for (let j = i; j < i + itemsPerRow && j < scienceArticles.length; j++) {
+            for (let j = i; j < i + itemsPerRow && j < sportsArticles.length; j++) {
                 rowItems.push(
                     <TouchableOpacity
                         key={j}
-                        onPress={() => navigation.navigate("DetailNews", { article: scienceArticles[j], scienceArticles })}
+                        onPress={() => navigation.navigate("DetailNews", { article: sportsArticles[j], sportsArticles })}
                     >
                         <View style={styles.content}>
-                            <Image source={{ uri: scienceArticles[j].image }} style={styles.image} />
+                            <Image source={{ uri: sportsArticles[j].image }} style={styles.image} />
                             <Text style={styles.articleText}>
-                                {scienceArticles[j].title.length > 24 ? scienceArticles[j].title.substring(0, 24) + '...' : scienceArticles[j].title}
+                                {sportsArticles[j].title.length > 24 ? sportsArticles[j].title.substring(0, 24) + '...' : sportsArticles[j].title}
                             </Text>
                         </View>
                     </TouchableOpacity>
@@ -61,7 +62,7 @@ const EScreen = () =>{
     );
 };
 
-export default EScreen;
+export default FScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -96,3 +97,14 @@ const styles = StyleSheet.create({
         textAlign: "center"
     },
 });
+=======
+const GSportAll = () =>{
+    return (
+        <View>
+          
+        </View>
+      );
+}
+
+export default GSportAll;
+>>>>>>> 87056b0b430ec8bc6d442a6cc91fa8702973eb35:react-app/chaehyeon/components/globalnewscategory/GCategorySport.js

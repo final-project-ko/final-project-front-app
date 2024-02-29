@@ -1,42 +1,43 @@
-import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {useNavigation} from "@react-navigation/native";
-import React, {useEffect, useState} from "react";
+import React from 'react';
+import { Image, StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { useEffect, useState } from 'react';
 
-const GScreen = () =>{
+const KEntertainmentAll = () => {
     const navigation = useNavigation();
+    const [businessArticles, setBusinessArticles] = useState([]);
 
-    const [healthArticles, setHealthArticles] = useState([]);
-
-    let health = "kr_health";
+    let business = "kr_business";
 
     useEffect(() => {
         const fetchCategoryNews = async () => {
             try {
-                const responseHealth = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${health}`);
-                const dataHealth = await responseHealth.json();
-                setHealthArticles(dataHealth.articles);
+                const responseBusiness = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${entertainment}`);
+                const dataBusiness = await responseBusiness.json();
+                setBusinessArticles(dataBusiness.articles);
+                console.log("data", dataBusiness);
             } catch (error) {
                 console.log("Error fetching data", error);
             }
         };
         fetchCategoryNews();
-    }, [health]);
+    }, [business]);
 
     const renderArticles = () => {
         const itemsPerRow = 2;
         const rows = [];
-        for (let i = 0; i < healthArticles.length; i += itemsPerRow) {
+        for (let i = 0; i < businessArticles.length; i += itemsPerRow) {
             const rowItems = [];
-            for (let j = i; j < i + itemsPerRow && j < healthArticles.length; j++) {
+            for (let j = i; j < i + itemsPerRow && j < businessArticles.length; j++) {
                 rowItems.push(
                     <TouchableOpacity
                         key={j}
-                        onPress={() => navigation.navigate("DetailNews", { article: healthArticles[j], healthArticles })}
+                        onPress={() => navigation.navigate("DetailNews", { article: businessArticles[j], businessArticles })}
                     >
                         <View style={styles.content}>
-                            <Image source={{ uri: healthArticles[j].image }} style={styles.image} />
+                            <Image source={{ uri: businessArticles[j].image }} style={styles.image} />
                             <Text style={styles.articleText}>
-                                {healthArticles[j].title.length > 24 ? healthArticles[j].title.substring(0, 24) + '...' : healthArticles[j].title}
+                                {businessArticles[j].title.length > 24 ? businessArticles[j].title.substring(0, 24) + '...' : businessArticles[j].title}
                             </Text>
                         </View>
                     </TouchableOpacity>
@@ -60,7 +61,7 @@ const GScreen = () =>{
     );
 };
 
-export default GScreen;
+export default KEntertainmentAll;
 
 const styles = StyleSheet.create({
     container: {
@@ -95,3 +96,5 @@ const styles = StyleSheet.create({
         textAlign: "center"
     },
 });
+
+
