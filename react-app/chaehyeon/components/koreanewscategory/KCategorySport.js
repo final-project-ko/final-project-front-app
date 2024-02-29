@@ -2,8 +2,7 @@ import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react
 import {useNavigation} from "@react-navigation/native";
 import React, {useEffect, useState} from "react";
 
-<<<<<<< HEAD:react-app/chaehyeon/components/GScreen.js
-const GScreen = () =>{
+const KSportAll = () =>{
     const navigation = useNavigation();
 
     const [healthArticles, setHealthArticles] = useState([]);
@@ -61,7 +60,7 @@ const GScreen = () =>{
     );
 };
 
-export default GScreen;
+export default KSportAll;
 
 const styles = StyleSheet.create({
     container: {
@@ -96,14 +95,5 @@ const styles = StyleSheet.create({
         textAlign: "center"
     },
 });
-=======
-const KSportAll = () =>{
-    return (
-        <View>
-          
-        </View>
-      );
-}
 
-export default KSportAll;
->>>>>>> 87056b0b430ec8bc6d442a6cc91fa8702973eb35:react-app/chaehyeon/components/koreanewscategory/KCategorySport.js
+

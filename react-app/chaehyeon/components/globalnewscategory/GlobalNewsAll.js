@@ -16,12 +16,12 @@ const GlobalNewsAll =()=> {
     const [healthArticles, setHealthArticles] = useState([]);
 
 
-    let business = "kr_business";
-    let entertainment = "kr_entertainment";
-    let technology = "kr_technology";
-    let science = "kr_science";
-    let sports = "kr_sports";
-    let health = "kr_health";
+    let business = "us_business";
+    let entertainment = "us_entertainment";
+    let technology = "us_technology";
+    let science = "us_science";
+    let sports = "us_sports";
+    let health = "us_health";
 
 
     useEffect(() => {
@@ -68,7 +68,7 @@ const GlobalNewsAll =()=> {
 
             <ScrollView style={styles.totalScrollView} showsVerticalScrollIndicator={false}>
 
-                <Text style={styles.categoryText}>비즈니스</Text>
+                <Text style={styles.categoryText}>BUSINESS</Text>
                 <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
                             showsHorizontalScrollIndicator={false}>
 
@@ -87,7 +87,7 @@ const GlobalNewsAll =()=> {
                 </ScrollView>
 
 
-                <Text style={styles.categoryText}>엔터테인먼트</Text>
+                <Text style={styles.categoryText}>ENTERTAINMENT</Text>
                 <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
                             showsHorizontalScrollIndicator={false}>
 
@@ -105,7 +105,7 @@ const GlobalNewsAll =()=> {
                 </ScrollView>
 
 
-                <Text style={styles.categoryText}>기술</Text>
+                <Text style={styles.categoryText}>TECHNOLOGY</Text>
                 <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
                             showsHorizontalScrollIndicator={false}>
 
@@ -123,7 +123,7 @@ const GlobalNewsAll =()=> {
                 </ScrollView>
 
 
-                <Text style={styles.categoryText}>과학</Text>
+                <Text style={styles.categoryText}>SCIENCE</Text>
                 <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
                             showsHorizontalScrollIndicator={false}>
 
@@ -141,7 +141,7 @@ const GlobalNewsAll =()=> {
                 </ScrollView>
 
 
-                <Text style={styles.categoryText}>스포츠</Text>
+                <Text style={styles.categoryText}>SPORTS</Text>
                 <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
                             showsHorizontalScrollIndicator={false}>
 
@@ -159,7 +159,7 @@ const GlobalNewsAll =()=> {
                 </ScrollView>
 
 
-                <Text style={styles.categoryText}>건강</Text>
+                <Text style={styles.categoryText}>HEALTH</Text>
                 <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
                             showsHorizontalScrollIndicator={false}>
 
