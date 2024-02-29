@@ -1,17 +1,19 @@
 import React from 'react';
-import AScreen from './AScreen';
-import BScreen from './BScreen';
-import DScreen from './DScreen';
-import EScreen from './EScreen';
-import FScreen from './FScreen';
-import GScreen from './GScreen';
+import GEntertainmentAll from './GCategoryEntertainment';
+import GBusinessAll from './GCategoryBussiness';
+import GTechnologyAll from './GCategoryTechnology';
+import GScienceAll from './GCategoryScience';
+import GSportAll from './GCategorySport';
+import GHealthAll from './GCategoryHealth';
+import GlobalNewsAll from './GlobalNewsAll';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import CScreen from './CScreen';
+
+
 
 
 const Tab = createMaterialTopTabNavigator();
 
-const TopNavigator = () => {
+const GlobalNewsNavigator = () => {
   return (    <Tab.Navigator
     initialRouteName='MainScreen'
     tabBarOptions={{
@@ -34,40 +36,59 @@ const TopNavigator = () => {
     }}
   >
       <Tab.Screen 
-        name="AScreen" 
-        component={AScreen} 
+        name="GNewsAll" 
+        component={GlobalNewsAll} 
         options={{
           tabBarLabel: "전체"
         }}
       />
             <Tab.Screen 
-        name="CScreen" 
-        component={CScreen} 
+        name="GEntertainmentAll" 
+        component={GEntertainmentAll} 
+        options={{
+          tabBarLabel: "엔터테인먼트"
+        }}
       />
       <Tab.Screen 
-        name="BScreen" 
-        component={BScreen} 
+        name="GBusinessAll" 
+        component={GBusinessAll} 
+        options={{
+          tabBarLabel: "비즈니스"
+        }}
       />
             <Tab.Screen 
-        name="DScreen" 
-        component={DScreen} 
+        name="GTechnologyAll" 
+        component={GTechnologyAll} 
+        options={{
+          tabBarLabel: "기술"
+        }}
       />
                   <Tab.Screen 
-        name="EScreen" 
-        component={EScreen} 
+        name="GScienceAll" 
+        component={GScienceAll} 
+        options={{
+          tabBarLabel: "과학"
+        }}
       />
                         <Tab.Screen 
-        name="FScreen" 
-        component={FScreen} 
+        name="GSportAll" 
+        component={GSportAll} 
+        options={{
+          tabBarLabel: "스포츠"
+        }}
       />
                               <Tab.Screen 
-        name="GScreen" 
-        component={GScreen} 
+        name="GHealthAll" 
+        component={GHealthAll} 
+        options={{
+          tabBarLabel: "건강"
+        }}
       />
+
 
     </Tab.Navigator>
   );
 }
 
-export default TopNavigator;
+export default GlobalNewsNavigator;
 

@@ -2,42 +2,42 @@ import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react
 import {useNavigation} from "@react-navigation/native";
 import React, {useEffect, useState} from "react";
 
-const DScreen = () =>{
+const GBusinessAll = () =>{
     const navigation = useNavigation();
 
-    const [techArticles, setTechArticles] = useState([]);
+    const [entertainmentArticles, setEntertainmentArticles] = useState([]);
 
-    let technology = "kr_technology";
+    let entertainment = "kr_entertainment";
 
 
     useEffect(() => {
         const fetchCategoryNews = async () => {
             try {
-                const responseTech = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${technology}`);
-                const dataTech = await responseTech.json();
-                setTechArticles(dataTech.articles);
+                const responseEntertainment = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${business}`);
+                const dataEntertainment = await responseEntertainment.json();
+                setEntertainmentArticles(dataEntertainment.articles);
             } catch (error) {
                 console.log("Error fetching data", error);
             }
         };
         fetchCategoryNews();
-    }, [technology]);
+    }, [entertainment]);
 
     const renderArticles = () => {
         const itemsPerRow = 2;
         const rows = [];
-        for (let i = 0; i < techArticles.length; i += itemsPerRow) {
+        for (let i = 0; i < entertainmentArticles.length; i += itemsPerRow) {
             const rowItems = [];
-            for (let j = i; j < i + itemsPerRow && j < techArticles.length; j++) {
+            for (let j = i; j < i + itemsPerRow && j < entertainmentArticles.length; j++) {
                 rowItems.push(
                     <TouchableOpacity
                         key={j}
-                        onPress={() => navigation.navigate("DetailNews", { article: techArticles[j], techArticles })}
+                        onPress={() => navigation.navigate("DetailNews", { article: entertainmentArticles[j], entertainmentArticles })}
                     >
                         <View style={styles.content}>
-                            <Image source={{ uri: techArticles[j].image }} style={styles.image} />
+                            <Image source={{ uri: entertainmentArticles[j].image }} style={styles.image} />
                             <Text style={styles.articleText}>
-                                {techArticles[j].title.length > 24 ? techArticles[j].title.substring(0, 24) + '...' : techArticles[j].title}
+                                {entertainmentArticles[j].title.length > 24 ? entertainmentArticles[j].title.substring(0, 24) + '...' : entertainmentArticles[j].title}
                             </Text>
                         </View>
                     </TouchableOpacity>
@@ -61,7 +61,7 @@ const DScreen = () =>{
     );
 };
 
-export default DScreen;
+export default GBusinessAll;
 
 const styles = StyleSheet.create({
     container: {

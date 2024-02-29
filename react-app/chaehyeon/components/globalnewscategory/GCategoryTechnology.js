@@ -2,42 +2,42 @@ import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react
 import {useNavigation} from "@react-navigation/native";
 import React, {useEffect, useState} from "react";
 
-const EScreen = () =>{
+const GTechnologyAll = () =>{
     const navigation = useNavigation();
 
-    const [scienceArticles, setScienceArticles] = useState([]);
+    const [techArticles, setTechArticles] = useState([]);
 
-    let science = "kr_science";
+    let technology = "kr_technology";
 
 
     useEffect(() => {
         const fetchCategoryNews = async () => {
             try {
-                const responseSci = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${science}`);
-                const dataSci = await responseSci.json();
-                setScienceArticles(dataSci.articles);
+                const responseTech = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${technology}`);
+                const dataTech = await responseTech.json();
+                setTechArticles(dataTech.articles);
             } catch (error) {
                 console.log("Error fetching data", error);
             }
         };
         fetchCategoryNews();
-    }, [science]);
+    }, [technology]);
 
     const renderArticles = () => {
         const itemsPerRow = 2;
         const rows = [];
-        for (let i = 0; i < scienceArticles.length; i += itemsPerRow) {
+        for (let i = 0; i < techArticles.length; i += itemsPerRow) {
             const rowItems = [];
-            for (let j = i; j < i + itemsPerRow && j < scienceArticles.length; j++) {
+            for (let j = i; j < i + itemsPerRow && j < techArticles.length; j++) {
                 rowItems.push(
                     <TouchableOpacity
                         key={j}
-                        onPress={() => navigation.navigate("DetailNews", { article: scienceArticles[j], scienceArticles })}
+                        onPress={() => navigation.navigate("DetailNews", { article: techArticles[j], techArticles })}
                     >
                         <View style={styles.content}>
-                            <Image source={{ uri: scienceArticles[j].image }} style={styles.image} />
+                            <Image source={{ uri: techArticles[j].image }} style={styles.image} />
                             <Text style={styles.articleText}>
-                                {scienceArticles[j].title.length > 24 ? scienceArticles[j].title.substring(0, 24) + '...' : scienceArticles[j].title}
+                                {techArticles[j].title.length > 24 ? techArticles[j].title.substring(0, 24) + '...' : techArticles[j].title}
                             </Text>
                         </View>
                     </TouchableOpacity>
@@ -61,7 +61,7 @@ const EScreen = () =>{
     );
 };
 
-export default EScreen;
+export default GTechnologyAll;
 
 const styles = StyleSheet.create({
     container: {

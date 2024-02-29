@@ -1,6 +1,6 @@
 import { View } from "react-native";
 
-const FScreen = () =>{
+const GSportAll = () =>{
     return (
         <View>
           
@@ -8,4 +8,4 @@ const FScreen = () =>{
       );
 }
 
-export default FScreen;
+export default GSportAll;

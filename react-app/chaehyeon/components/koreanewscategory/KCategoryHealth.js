@@ -1,6 +1,6 @@
 import { View } from "react-native";
 
-const GScreen = () =>{
+const KHealthAll = () =>{
     return (
         <View>
           
@@ -8,4 +8,4 @@ const GScreen = () =>{
       );
 }
 
-export default GScreen;
+export default KHealthAll;
