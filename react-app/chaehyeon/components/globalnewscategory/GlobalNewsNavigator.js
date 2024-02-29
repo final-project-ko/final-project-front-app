@@ -1,12 +1,13 @@
 import React from 'react';
-import GEntertainmentAll from './GCategoryEntertainment';
-import GBusinessAll from './GCategoryBussiness';
+import GlobalNewsAll from './GlobalNewsAll';
 import GTechnologyAll from './GCategoryTechnology';
 import GScienceAll from './GCategoryScience';
 import GSportAll from './GCategorySport';
 import GHealthAll from './GCategoryHealth';
-import GlobalNewsAll from './GlobalNewsAll';
+import GBusinessAll from './GCategoryBusiness';
+import GEntertainmentAll from './GCategoryEntertainment';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
 
 
 
@@ -43,19 +44,20 @@ const GlobalNewsNavigator = () => {
         }}
       />
             <Tab.Screen 
-        name="GEntertainmentAll" 
-        component={GEntertainmentAll} 
-        options={{
-          tabBarLabel: "엔터테인먼트"
-        }}
-      />
-      <Tab.Screen 
         name="GBusinessAll" 
         component={GBusinessAll} 
         options={{
           tabBarLabel: "비즈니스"
         }}
       />
+            <Tab.Screen 
+        name="GEntertainmentAll" 
+        component={GEntertainmentAll} 
+        options={{
+          tabBarLabel: "엔터테인먼트"
+        }}
+      />
+
             <Tab.Screen 
         name="GTechnologyAll" 
         component={GTechnologyAll} 

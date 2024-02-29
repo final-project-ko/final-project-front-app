@@ -1,8 +1,7 @@
-import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {useNavigation} from "@react-navigation/native";
-import React, {useEffect, useState} from "react";
+import { View } from "react-native";
 
 const KSportAll = () =>{
+<<<<<<< HEAD
     const navigation = useNavigation();
 
     const [healthArticles, setHealthArticles] = useState([]);
@@ -97,3 +96,13 @@ const styles = StyleSheet.create({
 });
 
 
+=======
+    return (
+        <View>
+          
+        </View>
+      );
+}
+
+export default KSportAll;
+>>>>>>> c86919540cd31e42366e881583bc23e80eef785a
