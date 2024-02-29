@@ -2,42 +2,42 @@ import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react
 import {useNavigation} from "@react-navigation/native";
 import React, {useEffect, useState} from "react";
 
-const BScreen = () =>{
+const KTechnologyAll = () =>{
     const navigation = useNavigation();
 
-    const [entertainmentArticles, setEntertainmentArticles] = useState([]);
+    const [techArticles, setTechArticles] = useState([]);
 
-    let entertainment = "kr_entertainment";
+    let technology = "kr_technology";
 
 
     useEffect(() => {
         const fetchCategoryNews = async () => {
             try {
-                const responseEntertainment = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${entertainment}`);
-                const dataEntertainment = await responseEntertainment.json();
-                setEntertainmentArticles(dataEntertainment.articles);
+                const responseTech = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${technology}`);
+                const dataTech = await responseTech.json();
+                setTechArticles(dataTech.articles);
             } catch (error) {
                 console.log("Error fetching data", error);
             }
         };
         fetchCategoryNews();
-    }, [entertainment]);
+    }, [technology]);
 
     const renderArticles = () => {
         const itemsPerRow = 2;
         const rows = [];
-        for (let i = 0; i < entertainmentArticles.length; i += itemsPerRow) {
+        for (let i = 0; i < techArticles.length; i += itemsPerRow) {
             const rowItems = [];
-            for (let j = i; j < i + itemsPerRow && j < entertainmentArticles.length; j++) {
+            for (let j = i; j < i + itemsPerRow && j < techArticles.length; j++) {
                 rowItems.push(
                     <TouchableOpacity
                         key={j}
-                        onPress={() => navigation.navigate("DetailNews", { article: entertainmentArticles[j], entertainmentArticles })}
+                        onPress={() => navigation.navigate("DetailNews", { article: techArticles[j], techArticles })}
                     >
                         <View style={styles.content}>
-                            <Image source={{ uri: entertainmentArticles[j].image }} style={styles.image} />
+                            <Image source={{ uri: techArticles[j].image }} style={styles.image} />
                             <Text style={styles.articleText}>
-                                {entertainmentArticles[j].title.length > 24 ? entertainmentArticles[j].title.substring(0, 24) + '...' : entertainmentArticles[j].title}
+                                {techArticles[j].title.length > 24 ? techArticles[j].title.substring(0, 24) + '...' : techArticles[j].title}
                             </Text>
                         </View>
                     </TouchableOpacity>
@@ -61,7 +61,7 @@ const BScreen = () =>{
     );
 };
 
-export default BScreen;
+export default KTechnologyAll;
 
 const styles = StyleSheet.create({
     container: {

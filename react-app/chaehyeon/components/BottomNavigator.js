@@ -3,9 +3,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import MainScreen from './MainScreen';
 import SettingScreen3 from './SettingScreen3';
-import TopNavigator from './TopNavigator';
 import SettingScreen2 from './SettingScreen2';
 import { MaterialIcons } from '@expo/vector-icons'; 
+import GlobalNewsNavigator from './globalnewscategory/GlobalNewsNavigator';
+import KoreaNewsNavigator from './koreanewscategory/KoreaNewsNavigator';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -61,7 +62,7 @@ const BottomNavigator = () => {
       />
       <BottomTab.Screen 
         name="국내 뉴스" 
-        component={TopNavigator} 
+        component={KoreaNewsNavigator} 
         options={{
           tabBarIcon: ({color, size}) => (
             <Ionicons name="newspaper-outline" color={color} size={size} />
@@ -71,7 +72,7 @@ const BottomNavigator = () => {
       />
       <BottomTab.Screen 
         name="해외 뉴스" 
-        component={SettingScreen2} 
+        component={GlobalNewsNavigator} 
         options={{
           tabBarIcon: ({color, size}) => (
             <Ionicons name="globe-outline" color={color} size={size} />
