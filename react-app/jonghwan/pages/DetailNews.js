@@ -1,8 +1,14 @@
-import {Image, ScrollView, StatusBar, StyleSheet, Text, View} from "react-native";
+import {Image, ScrollView, StatusBar, StyleSheet, Text, View, Linking, Button} from "react-native";
+import SwipeButtons from "../../chaehyeon/components/SwipeableButton";
+import React from "react";
 
 const DetailNews = ({ route })=>{
 
     const {article, businessArticles} = route.params;
+
+    const openUrl = () =>{
+        Linking.openURL(article.url);
+    }
 
     return(
         <>
@@ -32,7 +38,15 @@ const DetailNews = ({ route })=>{
 
                 </View>
 
+                <View>
+                    <Text>더 자세한 소식이 궁금하다면?</Text>
+                    <SwipeButtons message="오늘의 뉴스 일기" backgroundSource={require('../../assets/SwipeBar_1loop.gif')} widthsize={320} onPress={openUrl}/>
+                </View>
+
             </View>
+
+
+
         </>
 
     )
