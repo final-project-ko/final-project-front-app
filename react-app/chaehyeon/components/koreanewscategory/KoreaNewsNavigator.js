@@ -1,12 +1,13 @@
 import React from 'react';
 import KoreaNewsAll from './KoreaNewsAll';
-import KEntertainmentAll from './KCategoryEntertainment';
-import KBusinessAll from './KCategoryBussiness';
-import KTechnologyAll from './KCategoryTechnology';
-import KScienceAll from './KCategoryScience';
-import KSportAll from './KCategorySport';
+import KBusinessAll from './KCategoryBusiness';
 import KHealthAll from './KCategoryHealth';
+import KSportAll from './KCategorySport';
+import KScienceAll from './KCategoryScience';
+import KTechnologyAll from './KCategoryTechnology';
+import KEntertainmentAll from './KCategoryEntertainment';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
 
 
 
@@ -36,49 +37,50 @@ const KoreaNewsNavigator = () => {
     }}
   >
       <Tab.Screen 
-        name="GNewsAll" 
+        name="KoreaNewsAll" 
         component={KoreaNewsAll} 
         options={{
           tabBarLabel: "전체"
         }}
       />
             <Tab.Screen 
-        name="GEntertainmentAll" 
-        component={KEntertainmentAll} 
-        options={{
-          tabBarLabel: "엔터테인먼트"
-        }}
-      />
-      <Tab.Screen 
-        name="GBusinessAll" 
+        name="KBusinessAll" 
         component={KBusinessAll} 
         options={{
           tabBarLabel: "비즈니스"
         }}
       />
             <Tab.Screen 
-        name="GTechnologyAll" 
+        name="KEntertainmentAll" 
+        component={KEntertainmentAll} 
+        options={{
+          tabBarLabel: "엔터테인먼트"
+        }}
+      />
+
+            <Tab.Screen 
+        name="KTechnologyAll" 
         component={KTechnologyAll} 
         options={{
           tabBarLabel: "기술"
         }}
       />
                   <Tab.Screen 
-        name="GScienceAll" 
+        name="KScienceAll" 
         component={KScienceAll} 
         options={{
           tabBarLabel: "과학"
         }}
       />
                         <Tab.Screen 
-        name="GSportAll" 
+        name="KSportAll" 
         component={KSportAll} 
         options={{
           tabBarLabel: "스포츠"
         }}
       />
                               <Tab.Screen 
-        name="GHealthAll" 
+        name="KHealthAll" 
         component={KHealthAll} 
         options={{
           tabBarLabel: "건강"
