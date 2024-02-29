@@ -92,7 +92,7 @@ const News =()=> {
                             showsHorizontalScrollIndicator={false}>
 
                     {entertainmentArticles.map((article, index) => (
-                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
+                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews", { article, entertainmentArticles})} key={index}>
                             <View style={styles.content}>
                                 <Image source={{uri: article.image}} style={styles.image}/>
                                 <Text style={styles.articleText}>
@@ -110,7 +110,7 @@ const News =()=> {
                             showsHorizontalScrollIndicator={false}>
 
                     {techArticles.map((article, index) => (
-                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
+                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews", { article, techArticles})} key={index}>
                             <View style={styles.content}>
                                 <Image source={{uri: article.image}} style={styles.image}/>
                                 <Text style={styles.articleText}>
@@ -128,7 +128,7 @@ const News =()=> {
                             showsHorizontalScrollIndicator={false}>
 
                     {scienceArticles.map((article, index) => (
-                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
+                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews", { article, scienceArticles})} key={index}>
                             <View style={styles.content}>
                                 <Image source={{uri: article.image}} style={styles.image}/>
                                 <Text style={styles.articleText}>
@@ -146,7 +146,7 @@ const News =()=> {
                             showsHorizontalScrollIndicator={false}>
 
                     {sportsArticles.map((article, index) => (
-                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
+                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews", { article, sportsArticles})} key={index}>
                             <View style={styles.content}>
                                 <Image source={{uri: article.image}} style={styles.image}/>
                                 <Text style={styles.articleText}>
@@ -164,7 +164,7 @@ const News =()=> {
                             showsHorizontalScrollIndicator={false}>
 
                     {healthArticles.map((article, index) => (
-                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
+                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews", { article, healthArticles})} key={index}>
                             <View style={styles.content}>
                                 <Image source={{uri: article.image}} style={styles.image}/>
                                 <Text style={styles.articleText}>
