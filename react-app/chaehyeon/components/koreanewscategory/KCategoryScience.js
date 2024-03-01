@@ -1,6 +1,7 @@
 import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {useNavigation} from "@react-navigation/native";
 import React, {useEffect, useState} from "react";
+import {homeUrl} from "../../../ifconfig/Inet";
 
 const KScienceAll = () =>{
     const navigation = useNavigation();
@@ -13,7 +14,7 @@ const KScienceAll = () =>{
     useEffect(() => {
         const fetchCategoryNews = async () => {
             try {
-                const responseSci = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${science}`);
+                const responseSci = await fetch(`http://${homeUrl}:8080/api/news/categoryNews/${science}`);
                 const dataSci = await responseSci.json();
                 setScienceArticles(dataSci.articles);
             } catch (error) {

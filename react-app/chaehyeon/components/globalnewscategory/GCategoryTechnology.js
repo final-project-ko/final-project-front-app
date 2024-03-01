@@ -1,19 +1,20 @@
 import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {useNavigation} from "@react-navigation/native";
 import React, {useEffect, useState} from "react";
+import {homeUrl} from "../../../ifconfig/Inet";
 
 const GTechnologyAll = () =>{
     const navigation = useNavigation();
 
     const [techArticles, setTechArticles] = useState([]);
 
-    let technology = "kr_technology";
+    let technology = "us_technology";
 
 
     useEffect(() => {
         const fetchCategoryNews = async () => {
             try {
-                const responseTech = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${technology}`);
+                const responseTech = await fetch(`http://${homeUrl}:8080/api/news/categoryNews/${technology}`);
                 const dataTech = await responseTech.json();
                 setTechArticles(dataTech.articles);
             } catch (error) {

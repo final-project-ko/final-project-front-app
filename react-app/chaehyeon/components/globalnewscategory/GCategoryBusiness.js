@@ -2,17 +2,18 @@ import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
+import {homeUrl} from "../../../ifconfig/Inet";
 
 const GBusinessAll = () => {
     const navigation = useNavigation();
     const [businessArticles, setBusinessArticles] = useState([]);
 
-    let business = "kr_business";
+    let business = "us_business";
 
     useEffect(() => {
         const fetchCategoryNews = async () => {
             try {
-                const responseBusiness = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${business}`);
+                const responseBusiness = await fetch(`http://${homeUrl}:8080/api/news/categoryNews/${business}`);
                 const dataBusiness = await responseBusiness.json();
                 setBusinessArticles(dataBusiness.articles);
                 console.log("data", dataBusiness);

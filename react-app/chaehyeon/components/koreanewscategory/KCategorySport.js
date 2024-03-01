@@ -1,41 +1,44 @@
-import { View } from "react-native";
+import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {useEffect, useState} from "react";
+import {useNavigation} from "@react-navigation/native";
+import {homeUrl} from "../../../ifconfig/Inet";
 
 const KSportAll = () =>{
-<<<<<<< HEAD
     const navigation = useNavigation();
 
-    const [healthArticles, setHealthArticles] = useState([]);
+    const [sportsArticles, setSportsArticles] = useState([]);
 
-    let health = "kr_health";
+    let sports = "kr_sports";
+
 
     useEffect(() => {
         const fetchCategoryNews = async () => {
             try {
-                const responseHealth = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${health}`);
-                const dataHealth = await responseHealth.json();
-                setHealthArticles(dataHealth.articles);
+                const responseSports = await fetch(`http://${homeUrl}:8080/api/news/categoryNews/${sports}`);
+                const dataSports = await responseSports.json();
+                setSportsArticles(dataSports.articles);
             } catch (error) {
                 console.log("Error fetching data", error);
             }
         };
         fetchCategoryNews();
-    }, [health]);
+    }, [sports]);
 
     const renderArticles = () => {
         const itemsPerRow = 2;
         const rows = [];
-        for (let i = 0; i < healthArticles.length; i += itemsPerRow) {
+        for (let i = 0; i < sportsArticles.length; i += itemsPerRow) {
             const rowItems = [];
-            for (let j = i; j < i + itemsPerRow && j < healthArticles.length; j++) {
+            for (let j = i; j < i + itemsPerRow && j < sportsArticles.length; j++) {
                 rowItems.push(
                     <TouchableOpacity
                         key={j}
-                        onPress={() => navigation.navigate("DetailNews", { article: healthArticles[j], healthArticles })}
+                        onPress={() => navigation.navigate("DetailNews", { article: sportsArticles[j], sportsArticles })}
                     >
                         <View style={styles.content}>
-                            <Image source={{ uri: healthArticles[j].image }} style={styles.image} />
+                            <Image source={{ uri: sportsArticles[j].image }} style={styles.image} />
                             <Text style={styles.articleText}>
-                                {healthArticles[j].title.length > 24 ? healthArticles[j].title.substring(0, 24) + '...' : healthArticles[j].title}
+                                {sportsArticles[j].title.length > 24 ? sportsArticles[j].title.substring(0, 24) + '...' : sportsArticles[j].title}
                             </Text>
                         </View>
                     </TouchableOpacity>
@@ -95,14 +98,3 @@ const styles = StyleSheet.create({
     },
 });
 
-
-=======
-    return (
-        <View>
-          
-        </View>
-      );
-}
-
-export default KSportAll;
->>>>>>> c86919540cd31e42366e881583bc23e80eef785a

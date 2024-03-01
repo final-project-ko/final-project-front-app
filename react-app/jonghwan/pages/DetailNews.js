@@ -6,10 +6,7 @@ const DetailNews = ({ route })=>{
 
     const {article, businessArticles} = route.params;
 
-    const openUrl = () =>{
-        Linking.openURL(article.url);
-    }
-
+    console.log(article.url);
     return(
         <>
             <StatusBar />
@@ -38,9 +35,11 @@ const DetailNews = ({ route })=>{
 
                 </View>
 
-                <View>
-                    <Text>더 자세한 소식이 궁금하다면?</Text>
-                    <SwipeButtons message="오늘의 뉴스 일기" backgroundSource={require('../../assets/SwipeBar_1loop.gif')} widthsize={320} onPress={openUrl}/>
+                <View style={styles.goUrl}>
+                    <Text style={styles.descriptionFont}>더 자세한 소식이 궁금하다면?</Text>
+                    <SwipeButtons message="계속 읽어보기" backgroundSource={require('../../assets/SwipeBar_1loop.gif')} widthsize={320} article={article.url}/>
+
+
                 </View>
 
             </View>
@@ -72,7 +71,7 @@ const styles = StyleSheet.create({
         justifyContent:'space-between'
     },
     content:{
-        height:'70%',
+        height:'60%',
         width:'90%',
         backgroundColor:'rgba(50,50,54, 1)',
         borderRadius: 20,
@@ -82,7 +81,7 @@ const styles = StyleSheet.create({
     },
     image:{
         width:'90%',
-        height:'40%',
+        height:'50%',
         marginTop:'5%',
         borderRadius:20
     },
@@ -103,5 +102,12 @@ const styles = StyleSheet.create({
     desContainer:{
         width:'90%',
         marginTop:'5%'
+    },
+    goUrl:{
+        height:'12%',
+        width:'90%',
+        alignItems:'center',
+        marginTop:'10%',
+        justifyContent:'space-between'
     }
 })
