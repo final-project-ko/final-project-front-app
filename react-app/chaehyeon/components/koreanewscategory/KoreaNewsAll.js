@@ -2,6 +2,7 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import { ScrollView } from 'react-native-gesture-handler';
 import {useNavigation} from "@react-navigation/native";
 import {useEffect, useState} from "react";
+import {homeUrl} from "../../../ifconfig/Inet";
 
 
 const KoreaNewsAll =()=> {
@@ -27,27 +28,27 @@ const KoreaNewsAll =()=> {
     useEffect(() => {
         const fetchCategoryNews = async () => {
             try {
-                const responseBusiness = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${business}`);
+                const responseBusiness = await fetch(`http://${homeUrl}:8080/api/news/categoryNews/${business}`);
                 const dataBusiness = await responseBusiness.json();
                 setBusinessArticles(dataBusiness.articles);
                 console.log("data", dataBusiness);
-                const responseEntertainment = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${entertainment}`);
+                const responseEntertainment = await fetch(`http://${homeUrl}:8080/api/news/categoryNews/${entertainment}`);
                 const dataEntertainment = await responseEntertainment.json();
                 setEntertainmentArticles(dataEntertainment.articles);
 
-                const responseTech = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${technology}`);
+                const responseTech = await fetch(`http://${homeUrl}:8080/api/news/categoryNews/${technology}`);
                 const dataTech = await responseTech.json();
                 setTechArticles(dataTech.articles);
 
-                const responseSci = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${science}`);
+                const responseSci = await fetch(`http://${homeUrl}:8080/api/news/categoryNews/${science}`);
                 const dataSci = await responseSci.json();
                 setScienceArticles(dataSci.articles);
 
-                const responseSports = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${sports}`);
+                const responseSports = await fetch(`http://${homeUrl}:8080/api/news/categoryNews/${sports}`);
                 const dataSports = await responseSports.json();
                 setSportsArticles(dataSports.articles);
 
-                const responseHealth = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${health}`);
+                const responseHealth = await fetch(`http://${homeUrl}:8080/api/news/categoryNews/${health}`);
                 const dataHealth = await responseHealth.json();
                 setHealthArticles(dataHealth.articles);
 

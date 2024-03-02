@@ -1,18 +1,27 @@
+<<<<<<< HEAD
 import { StyleSheet, View } from "react-native";
 
 const GSportAll = () =>{
 
+=======
+import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {useEffect, useState} from "react";
+import {useNavigation} from "@react-navigation/native";
+import {homeUrl} from "../../../ifconfig/Inet";
+
+const GSportAll = () =>{
+>>>>>>> 7fd53f0d81a22392c3a111434febd6a0cd4509fb
     const navigation = useNavigation();
 
     const [sportsArticles, setSportsArticles] = useState([]);
 
-    let sports = "kr_sports";
+    let sports = "us_sports";
 
 
     useEffect(() => {
         const fetchCategoryNews = async () => {
             try {
-                const responseSports = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${sports}`);
+                const responseSports = await fetch(`http://${homeUrl}:8080/api/news/categoryNews/${sports}`);
                 const dataSports = await responseSports.json();
                 setSportsArticles(dataSports.articles);
             } catch (error) {
@@ -95,3 +104,7 @@ const styles = StyleSheet.create({
         textAlign: "center"
     },
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7fd53f0d81a22392c3a111434febd6a0cd4509fb
