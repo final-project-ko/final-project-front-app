@@ -69,49 +69,48 @@ const Fivedays = () =>{
                     `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
                 ).then(response => {
                     console.log("-")
-                    console.log(response.data.list[0].main.temp_min)
-                    console.log(response.data.list[0].dt_txt);
-                    console.log(response.data.list[7].dt_txt);
-                    console.log(response.data.list[5].main.temp_max);
+                    console.log(response.data.list[3].dt_txt);
+                    console.log(response.data.list[37].main.temp_max);
+                    console.log(response.data.list[37].main.humidity);
                     console.log(response.data.list[21].dt_txt.split(" ")[0]);
 
                     console.log("--")
                     if(mounted) {
                         // let summary = response.data.list[0].main;
                         //
-                        setMin(response.data.list[0].main.temp_min);
-                        setMax(response.data.list[0].main.temp_max);
-                        setStatus(response.data.list[0].weather[0].main);
-                        setPop(response.data.list[0].pop);
+                        setMin(response.data.list[3].main.temp_min);
+                        setMax(response.data.list[5].main.temp_max);
+                        setStatus(response.data.list[3].weather[0].main);
+                        setPop(response.data.list[0].main.humidity);
 
-                        setMin2(response.data.list[7].main.temp_min);
-                        setMax2(response.data.list[7].main.temp_max);
-                        setStatus2(response.data.list[7].weather[0].main);
-                        setPop2(response.data.list[8].pop);
+                        setMin2(response.data.list[11].main.temp_min);
+                        setMax2(response.data.list[13].main.temp_max);
+                        setStatus2(response.data.list[11].weather[0].main);
+                        setPop2(response.data.list[13].main.humidity);
 
-                        setMin3(response.data.list[13].main.temp_min);
-                        setMax3(response.data.list[13].main.temp_max);
-                        setStatus3(response.data.list[13].weather[0].main);
-                        setPop3(response.data.list[13].pop);
+                        setMin3(response.data.list[19].main.temp_min);
+                        setMax3(response.data.list[21].main.temp_max);
+                        setStatus3(response.data.list[19].weather[0].main);
+                        setPop3(response.data.list[19].main.humidity);
                         setDate3(response.data.list[13].dt_txt.substring(5, 10).replace("-","."));
 
-                        setMin4(response.data.list[21].main.temp_min);
-                        setMax4(response.data.list[21].main.temp_max);
-                        setStatus4(response.data.list[21].weather[0].main);
-                        setPop4(response.data.list[21].pop);
+                        setMin4(response.data.list[27].main.temp_min);
+                        setMax4(response.data.list[29].main.temp_max);
+                        setStatus4(response.data.list[27].weather[0].main);
+                        setPop4(response.data.list[27].main.humidity);
                         setDate4(response.data.list[21].dt_txt.substring(5, 10).replace("-","."));
 
-                        setMin5(response.data.list[29].main.temp_min);
-                        setMax5(response.data.list[29].main.temp_max);
-                        setStatus5(response.data.list[29].weather[0].main);
-                        setPop5(response.data.list[29].pop);
+                        setMin5(response.data.list[35].main.temp_min);
+                        setMax5(response.data.list[37].main.temp_max);
+                        setStatus5(response.data.list[35].weather[0].main);
+                        setPop5(response.data.list[37].main.humidity);
                         setDate5(response.data.list[29].dt_txt.substring(5, 10).replace("-","."));
 
-                        setMin6(response.data.list[37].main.temp_min);
-                        setMax6(response.data.list[37].main.temp_max);
-                        setStatus6(response.data.list[37].weather[0].main);
-                        setPop6(response.data.list[37].pop);
-                        setDate6(response.data.list[37].dt_txt.substring(5, 10).replace("-","."));
+                        // setMin6(response.data.list[43].main.temp_min);
+                        // setMax6(response.data.list[45].main.temp_max);
+                        // setStatus6(response.data.list[37].weather[0].main);
+                        // setPop6(response.data.list[37].pop);
+                        // setDate6(response.data.list[37].dt_txt.substring(5, 10).replace("-","."));
                         // setIsLoading(false);
 
                     }
@@ -240,25 +239,25 @@ const Fivedays = () =>{
                                     </View>
                                 </View>
 
-                                <View style={{height: '15%',width:'100%' ,flexDirection:'row',   justifyContent: 'space-between',borderBottomWidth: 2, borderBottomColor: 'grey'  }}>
-                                    <Text style={{fontSize:14, fontWeight:'bold',color:'white'}}> {date6} </Text>
-                                    <Text style={{fontSize:14, fontWeight:'bold',color: 'rgba(39, 145, 205, 1)' }}> {pop6}%
-                                        {status6 === "Clouds" && <Icon name="cloudy-outline" color='white'/>}
-                                        {status6 === "Clear" && <Icon name="sunny-outline" color='white'/>}
-                                        {status6 === "Snow" && <Icon name="snow-outline" color='white'/>}
-                                        {status6 === "Rain" && <Icon name="rainy-outline" color='white'/>}
-                                        {status6 === "Drizzle" && <Icon name="rainy-outline" color='white'/>}
-                                        {status6 === "Thunderstorm" && <Icon name="thunderstorm-outline" color='white'/>}
-                                    </Text>
-                                    <View style={{flexDirection:'row'}}>
-                                        <Text style={{ color: 'rgba(39, 145, 205, 1)' }}>
-                                            {Math.round(min6)}°/
-                                        </Text>
-                                        <Text style={{ color: 'rgba(241,112,34,1)' }}>
-                                            {Math.round(max6)}°
-                                        </Text>
-                                    </View>
-                                </View>
+                                {/*<View style={{height: '15%',width:'100%' ,flexDirection:'row',   justifyContent: 'space-between',borderBottomWidth: 2, borderBottomColor: 'grey'  }}>*/}
+                                {/*    <Text style={{fontSize:14, fontWeight:'bold',color:'white'}}> {date6} </Text>*/}
+                                {/*    <Text style={{fontSize:14, fontWeight:'bold',color: 'rgba(39, 145, 205, 1)' }}> {pop6}%*/}
+                                {/*        {status6 === "Clouds" && <Icon name="cloudy-outline" color='white'/>}*/}
+                                {/*        {status6 === "Clear" && <Icon name="sunny-outline" color='white'/>}*/}
+                                {/*        {status6 === "Snow" && <Icon name="snow-outline" color='white'/>}*/}
+                                {/*        {status6 === "Rain" && <Icon name="rainy-outline" color='white'/>}*/}
+                                {/*        {status6 === "Drizzle" && <Icon name="rainy-outline" color='white'/>}*/}
+                                {/*        {status6 === "Thunderstorm" && <Icon name="thunderstorm-outline" color='white'/>}*/}
+                                {/*    </Text>*/}
+                                {/*    <View style={{flexDirection:'row'}}>*/}
+                                {/*        <Text style={{ color: 'rgba(39, 145, 205, 1)' }}>*/}
+                                {/*            {Math.round(min6)}°/*/}
+                                {/*        </Text>*/}
+                                {/*        <Text style={{ color: 'rgba(241,112,34,1)' }}>*/}
+                                {/*            {Math.round(max6)}°*/}
+                                {/*        </Text>*/}
+                                {/*    </View>*/}
+                                {/*</View>*/}
 
                             </View>
 

@@ -2,8 +2,6 @@ import {useEffect, useState} from "react";
 import {Alert, Button, ImageBackground, StyleSheet, Text, View} from "react-native";
 import axios from "axios";
 import { TouchableOpacity } from 'react-native';
-// import {Tab} from "react-native-elements";
-// import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {useNavigation} from "@react-navigation/native";
 // import {API_KEY} from "react-native-dotenv";
 import Config from "react-native-config";
