@@ -16,7 +16,7 @@ const Tab = createMaterialTopTabNavigator();
 
 const KoreaNewsNavigator = () => {
   return (    <Tab.Navigator
-    initialRouteName='MainScreen'
+    initialRouteName='Home'
     tabBarOptions={{
       scrollEnabled: true,
       style: { 
@@ -34,6 +34,7 @@ const KoreaNewsNavigator = () => {
       showLabel: true, // 라벨을 보여줌
       pressColor: '#4AB9F8', // 탭을 눌렀을 때 효과 색상
       pressOpacity: 0.8, // 탭을 눌렀을 때 투명도 설정
+
     }}
   >
       <Tab.Screen 

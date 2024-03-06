@@ -14,6 +14,16 @@ const Weather = () =>{
     const [min, setMin] = useState('');
     const [error, setError] = useState(false);
 
+
+    const [selected, setSelected] = useState("");
+
+    const snowImg = require('../../../assets/snow.jpeg');
+    const rainImg = require('../../../assets/rain.jpg');
+    const clearImg = require('../../../assets/sunny.jpg');
+    const cloudsImg = require('../../../assets/clouds.jpg');
+
+    const defaultImg = require('../../../assets/sunny.jpg');
+
     // const apikey = Config.API_KEY;
     const API_KEY ="5c109176cb7f758390478b3cbdcc8d63";
     const latitude = 38;
@@ -44,6 +54,19 @@ const Weather = () =>{
                         // setMin(minTemp);
                         setIsLoading(false);
 
+                        let selectedImg = defaultImg;
+
+                        if(currentWeather === "Snow"){
+                            selectedImg = snowImg;
+                        } else if (currentWeather === "Rain"){
+                            selectedImg = rainImg;
+                        } else if (currentWeather === "Clear"){
+                            selectedImg = clearImg;
+                        } else if (currentWeather === "Clouds"){
+                            selectedImg = cloudsImg;
+                        }
+
+                        setSelected(selectedImg);
                     }
                 });
 
@@ -66,7 +89,7 @@ const Weather = () =>{
 
     return (
             <TouchableOpacity style={styles.container} onPress={() => navigation.navigate("DetailWeather")}>
-                <ImageBackground style={styles.picture}  imageStyle={styles.imgWrapper} source={currentWeather === "Snow" ? require('../../assets/snow.jpeg') : require('../../assets/snow.jpeg')}>
+                <ImageBackground style={styles.picture}  imageStyle={styles.imgWrapper} source={selected}>
                     {isLoading || error
                         ? (<Text> Waiting.. </Text>)
                         : (
@@ -76,9 +99,7 @@ const Weather = () =>{
                                     <>
                                         <Text> {currentWeather} </Text>
                                         <Text style={styles.tempNum}> {Math.round(temp)} </Text>
-                                        {/*<Text style={styles.tempNum}> {min} </Text>*/}
                                         <Text style={styles.temp}>°C |°F</Text>
-                                        {/*<Text>{temp1}</Text>*/}
                                     </>
                                 </View>
                             </>

@@ -1,12 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import MainScreen from './MainScreen';
-import SettingScreen3 from './SettingScreen3';
-import SettingScreen2 from './SettingScreen2';
-import { MaterialIcons } from '@expo/vector-icons'; 
+import { MaterialIcons } from '@expo/vector-icons';
 import GlobalNewsNavigator from './globalnewscategory/GlobalNewsNavigator';
 import KoreaNewsNavigator from './koreanewscategory/KoreaNewsNavigator';
+import Home from "./Home";
+import Mypage from "./Mypage";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -19,7 +18,7 @@ const BottomNavigator = () => {
   return (
 
 <BottomTab.Navigator
-  initialRouteName='MainScreen'
+  initialRouteName='Home'
   screenOptions={{
     tabBarStyle: {
       backgroundColor: '#323236', // Background color of the tab bar
@@ -51,7 +50,7 @@ const BottomNavigator = () => {
 >
       <BottomTab.Screen 
         name="홈" 
-        component={MainScreen} 
+        component={Home}
         options={{
           tabBarIcon: ({color, size}) => (
             <Ionicons name="home" color={color} size={size} />
@@ -81,14 +80,15 @@ const BottomNavigator = () => {
         }}
       />
       <BottomTab.Screen 
-        name="마이 페이지" 
-        component={SettingScreen3} 
+        name="마이 페이지"
+        component={Mypage}
         options={{
           tabBarIcon: ({color, size}) => (
             <Ionicons name="person-circle-outline" color={color} size={size} />
           ),
           tabBarLabelStyle: { fontSize: 12, fontWeight: 'bold' } // Customize tab label style
         }}
+
       />
     </BottomTab.Navigator>
   );

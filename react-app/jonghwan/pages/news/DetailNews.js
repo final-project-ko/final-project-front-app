@@ -1,5 +1,5 @@
 import {Image, ScrollView, StatusBar, StyleSheet, Text, View, Linking, Button} from "react-native";
-import SwipeButtons from "../../chaehyeon/components/SwipeableButton";
+import SwipeButtons from "../../../chaehyeon/components/SwipeableButton";
 import React from "react";
 
 const DetailNews = ({ route })=>{
@@ -37,7 +37,7 @@ const DetailNews = ({ route })=>{
 
                 <View style={styles.goUrl}>
                     <Text style={styles.descriptionFont}>더 자세한 소식이 궁금하다면?</Text>
-                    <SwipeButtons message="계속 읽어보기" backgroundSource={require('../../assets/SwipeBar_1loop.gif')} widthsize={320} article={article.url}/>
+                    <SwipeButtons message="계속 읽어보기" backgroundSource={require('../../../assets/SwipeBar_1loop.gif')} widthsize={320} article={article.url}/>
 
 
                 </View>

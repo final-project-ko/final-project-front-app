@@ -5,8 +5,13 @@ import { TouchableOpacity } from 'react-native';
 // import {Tab} from "react-native-elements";
 // import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {useNavigation} from "@react-navigation/native";
-import Fivedays from "../apis/fivedays";
-import BottomNavigator from "../../chaehyeon/components/BottomNavigator";
+import Fivedays from "../../components/newsCompo/fivedays";
+import BottomNavigator from "../../../chaehyeon/components/BottomNavigator";
+import defaultImg from "../../../assets/sunny.jpg";
+import snowImg from "../../../assets/snow.jpeg";
+import rainImg from "../../../assets/rain.jpg";
+import clearImg from "../../../assets/sunny.jpg";
+import cloudsImg from "../../../assets/clouds.jpg";
 
 
 const DetailWeather = () =>{
@@ -18,6 +23,15 @@ const DetailWeather = () =>{
     const [min, setMin] = useState('');
     const [error, setError] = useState(false);
 
+
+    const [selected, setSelected] = useState("");
+
+    const snowImg = require('../../../assets/snow.jpeg');
+    const rainImg = require('../../../assets/rain.jpg');
+    const clearImg = require('../../../assets/sunny.jpg');
+    const cloudsImg = require('../../../assets/clouds.jpg');
+
+    const defaultImg = require('../../../assets/sunny.jpg');
 
     // const Tab = createBottomTabNavigator();
     const API_KEY = "5c109176cb7f758390478b3cbdcc8d63";
@@ -52,6 +66,19 @@ const DetailWeather = () =>{
                         setMin(minTemp);
                         setIsLoading(false);
 
+                        let selectedImg = defaultImg;
+
+                        if(currentWeather === "Snow"){
+                            selectedImg = snowImg;
+                        } else if (currentWeather === "Rain"){
+                            selectedImg = rainImg;
+                        } else if (currentWeather === "Clear"){
+                            selectedImg = clearImg;
+                        } else if (currentWeather === "Clouds"){
+                            selectedImg = cloudsImg;
+                        }
+
+                        setSelected(selectedImg);
                     }
                 });
 
@@ -75,7 +102,7 @@ const DetailWeather = () =>{
     return (
 
 <>
-    <ImageBackground style={styles.container}  imageStyle={styles.imgWrapper} source={currentWeather === "Snow" ? require('../../assets/snow.jpeg') : require('../../assets/snow.jpeg')}>
+    <ImageBackground style={styles.container}  imageStyle={styles.imgWrapper} source={selected}>
         {isLoading || error
             ? (<Text> Waiting.. </Text>)
             : (

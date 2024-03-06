@@ -239,25 +239,6 @@ const Fivedays = () =>{
                                     </View>
                                 </View>
 
-                                {/*<View style={{height: '15%',width:'100%' ,flexDirection:'row',   justifyContent: 'space-between',borderBottomWidth: 2, borderBottomColor: 'grey'  }}>*/}
-                                {/*    <Text style={{fontSize:14, fontWeight:'bold',color:'white'}}> {date6} </Text>*/}
-                                {/*    <Text style={{fontSize:14, fontWeight:'bold',color: 'rgba(39, 145, 205, 1)' }}> {pop6}%*/}
-                                {/*        {status6 === "Clouds" && <Icon name="cloudy-outline" color='white'/>}*/}
-                                {/*        {status6 === "Clear" && <Icon name="sunny-outline" color='white'/>}*/}
-                                {/*        {status6 === "Snow" && <Icon name="snow-outline" color='white'/>}*/}
-                                {/*        {status6 === "Rain" && <Icon name="rainy-outline" color='white'/>}*/}
-                                {/*        {status6 === "Drizzle" && <Icon name="rainy-outline" color='white'/>}*/}
-                                {/*        {status6 === "Thunderstorm" && <Icon name="thunderstorm-outline" color='white'/>}*/}
-                                {/*    </Text>*/}
-                                {/*    <View style={{flexDirection:'row'}}>*/}
-                                {/*        <Text style={{ color: 'rgba(39, 145, 205, 1)' }}>*/}
-                                {/*            {Math.round(min6)}°/*/}
-                                {/*        </Text>*/}
-                                {/*        <Text style={{ color: 'rgba(241,112,34,1)' }}>*/}
-                                {/*            {Math.round(max6)}°*/}
-                                {/*        </Text>*/}
-                                {/*    </View>*/}
-                                {/*</View>*/}
 
                             </View>
 

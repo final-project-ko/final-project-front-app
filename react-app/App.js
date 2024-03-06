@@ -5,10 +5,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import BottomNavigator from './chaehyeon/components/BottomNavigator';
 import ShortNewsScreen from './chaehyeon/components/ShortNewsScreen';
-import Weather from "./jonghwan/components/WeatherAPI";
-import DetailWeather from "./jonghwan/pages/DetailWeather";
-import DetailNews from "./jonghwan/pages/DetailNews";
-import News from "./jonghwan/components/News";
+import Weather from "./jonghwan/components/weatherCompo/WeatherAPI";
+import DetailWeather from "./jonghwan/pages/weather/DetailWeather";
+import DetailNews from "./jonghwan/pages/news/DetailNews";
+import Bookmark from "./jonghwan/pages/mypage/Bookmark";
+import MypageNavigator from "./jonghwan/components/navigator/MypageNavigator";
+import Callcenter from "./jonghwan/pages/mypage/Callcenter";
+import Questions from "./jonghwan/pages/mypage/Questions";
+import Notice from "./jonghwan/pages/mypage/Notice";
+import Policy from "./jonghwan/pages/mypage/Policy";
 
 const Stack = createStackNavigator();
 
@@ -40,6 +45,26 @@ export default function App() {
         <Stack.Screen
             name="DetailNews"
             component={DetailNews}
+        />
+        <Stack.Screen
+            name="MypageNavigator"
+            component={MypageNavigator}
+        />
+        <Stack.Screen
+            name="Callcenter"
+            component={Callcenter}
+        />
+        <Stack.Screen
+            name="Questions"
+            component={Questions}
+        />
+        <Stack.Screen
+            name="Notice"
+            component={Notice}
+        />
+        <Stack.Screen
+            name="Policy"
+            component={Policy}
         />
       </Stack.Navigator>
     </NavigationContainer>

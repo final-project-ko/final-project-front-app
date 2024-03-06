@@ -1,14 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Weather from './../../jonghwan/components/WeatherAPI';
+import Weather from '../../jonghwan/components/weatherCompo/WeatherAPI';
 import SwipeButtons from './SwipeableButton';
 import StringToButtons from './StringToButtons';
 import { Text } from 'react-native';
 
 const Stack = createStackNavigator();
 
-const MainScreen = () => {
+const Home = () => {
+
+
+
   return (
     <View style={styles.container}>
       <View style={styles.separator5} />
@@ -38,7 +41,7 @@ const MainScreen = () => {
   );
 };
 
-export default MainScreen;
+export default Home;
 
 const styles = StyleSheet.create({
   container: {

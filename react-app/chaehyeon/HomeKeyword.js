@@ -1,4 +1,4 @@
-const MainKeyword = () =>{
+const HomeKeyword = () =>{
     
     return (
         <View>
@@ -8,4 +8,4 @@ const MainKeyword = () =>{
 
 }
 
-export default MainKeyword;
+export default HomeKeyword;
