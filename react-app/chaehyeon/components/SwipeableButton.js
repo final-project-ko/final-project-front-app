@@ -10,12 +10,12 @@ export default class SwipeButtons extends React.Component {
     };
   }
 
-  // handleSwipe = () => {
-  //   const { article } = this.props;
-  //   // article.url을 열도록 동작을 정의합니다.
-  //   Linking.openURL(article.url);
-  // }
-
+  handleSwipe = () => {
+    const { article } = this.props;
+    if (article && article.url) {
+      Linking.openURL(article.url);
+    }
+  }
 
 
   render() {
@@ -61,7 +61,7 @@ export default class SwipeButtons extends React.Component {
               enableReverseSwipe={true} // 오른쪽에서 왼쪽으로 스와이프(=리버스 스와이프)
               disabled={false} // 비활성화 상태
               disabledRailBackgroundColor={'#666666'} // 비활성화시 색상
-              // onSwipeSuccess={this.handleSwipe} // 스와이프 성공 시 처리할 함수
+              onSwipeSuccess={this.handleSwipe} // 스와이프 성공 시 처리할 함수
             >
             </SwipeButton>
           </ImageBackground>

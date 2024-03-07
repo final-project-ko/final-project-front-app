@@ -1,13 +1,47 @@
-import {ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {Button, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {useNavigation} from "@react-navigation/native";
 import {Ionicons} from "@expo/vector-icons";
+import React, {useEffect, useState} from "react";
+import {homeUrl} from "../../../ifconfig/Inet";
 
 
 const Notice = () => {
 
     const navigation = useNavigation();
 
+    const [articles, setArticles] = useState([]);
+    const [visibleContentIndex, setVisibleContentIndex] = useState(-1);
+
+    useEffect(() => {
+        const noticeList = async () => {
+            await fetch(`http://${homeUrl}:8080/api/notice/allNotice`, {
+                method: "GET",
+            }).then(res => res.json())
+                .then(data => {
+                    setArticles(data);
+
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+
+        };
+        noticeList();
+    },[]);
+
+    const onClickHandler = (index) => {
+        if (visibleContentIndex === index) {
+            setVisibleContentIndex(-1);
+        } else {
+            setVisibleContentIndex(index);
+        }
+    };
+
+
     return(
+
+        <>
+
         <View style={styles.container}>
 
             <View style={styles.suggest}>
@@ -50,15 +84,63 @@ const Notice = () => {
                 </View>
             </View>
 
-            <ScrollView style={styles.detailNotice}>
+            <ScrollView style={styles.detailNotice} >
                 <View style={{   borderBottomWidth:7, borderColor:'rgba(34,35,38, 0.6)',height:60 , marginBottom: 30}}>
                     <Text style={{color:'white', fontSize:20}}>공지</Text>
                 </View>
 
 
+                {articles.map((article, index) => (
+                    <View style={styles.noticeItem} key={index}>
+                        <TouchableOpacity
+                            style={styles.allNotice}
+                            onPress={() => onClickHandler(index)}
+                        >
+                            <Text style={styles.noticeTitle}>
+                                {article.notice_title}
+                            </Text>
+                            {visibleContentIndex === index && (
+                                <Text style={styles.noticeContent}>
+                                    {article.notice_content}
+                                </Text>
+                            )}
+                        </TouchableOpacity>
+                    </View>
+                ))}
+
+
+
             </ScrollView>
 
         </View>
+
+
+            <View style={styles.bottomTab}>
+                <TouchableOpacity style={styles.home} onPress={() => navigation.navigate("홈")}>
+                    <Ionicons name="home" color={'grey'} size={30} />
+                    <Text style={{color:'grey', fontSize: 12}}>홈</Text>
+                </TouchableOpacity>
+
+
+                <TouchableOpacity style={styles.krNews} onPress={() => navigation.navigate("국내 뉴스")}>
+                    <Ionicons name="newspaper-outline" color={'grey'} size={30} />
+                    <Text style={{color:'grey', fontSize: 12}}>국내 누스</Text>
+                </TouchableOpacity>
+
+
+                <TouchableOpacity style={styles.glNews} onPress={() => navigation.navigate("해외 뉴스")}>
+                    <Ionicons name="globe-outline" color={'grey'} size={30} />
+                    <Text style={{color:'grey', fontSize: 12}}>해외 뉴스</Text>
+                </TouchableOpacity>
+
+
+                <TouchableOpacity style={styles.mypage} onPress={() => navigation.navigate("마이 페이지")}>
+                    <Ionicons name="person-circle-outline" color={'grey'} size={30} />
+                    <Text style={{color:'grey', fontSize: 12}}>마이 페이지</Text>
+                </TouchableOpacity>
+
+            </View>
+            </>
     )
 
 }
@@ -69,7 +151,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'rgba(34,35,38, 1)',
         width: '100%',
-        height: '100%',
+        height: '90%',
         padding: '5%'
     },
 
@@ -94,10 +176,36 @@ const styles = StyleSheet.create({
     detailNotice:{
         backgroundColor: 'rgba(50,50,54, 1)',
         width:'100%',
-        height:'50%',
+        height:'70%',
         marginTop:'10%',
         borderRadius:20,
         padding:'5%'
     },
+    bottomTab:{
+        backgroundColor: 'rgba(50,50,54, 1)',
+        height: '10%',
+        width:'100%',
+        flexDirection:"row",
+        borderTopWidth:2,
+        borderColor:'grey',
+        justifyContent:'space-between',
+        paddingTop:'2%'
+    },
+    home:{
+        width:'25%',
+        alignItems:'center'
+    },
+    krNews:{
+        width:'25%',
+        alignItems:'center'
+    },
+    glNews:{
+        width:'25%',
+        alignItems:'center'
+    },
+    mypage:{
+        width:'25%',
+        alignItems:'center'
+    }
 
 });

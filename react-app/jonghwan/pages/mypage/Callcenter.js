@@ -1,6 +1,7 @@
 import {ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {Ionicons} from "@expo/vector-icons";
 import {useNavigation} from "@react-navigation/native";
+import React from "react";
 
 const Callcenter = () => {
 
@@ -8,6 +9,7 @@ const Callcenter = () => {
     const navigation = useNavigation();
 
     return(
+<>
         <View style={styles.container}>
 
             <View style={styles.suggest}>
@@ -55,10 +57,38 @@ const Callcenter = () => {
                     <Text style={{color:'white', fontSize:20}}>1:1 문의하기</Text>
                 </View>
 
-
             </View>
 
         </View>
+
+    <View style={styles.bottomTab}>
+        <TouchableOpacity style={styles.home} onPress={() => navigation.navigate("홈")}>
+            <Ionicons name="home" color={'grey'} size={30} />
+            <Text style={{color:'grey', fontSize: 12}}>홈</Text>
+        </TouchableOpacity>
+
+
+        <TouchableOpacity style={styles.krNews} onPress={() => navigation.navigate("국내 뉴스")}>
+            <Ionicons name="newspaper-outline" color={'grey'} size={30} />
+            <Text style={{color:'grey', fontSize: 12}}>국내 누스</Text>
+        </TouchableOpacity>
+
+
+        <TouchableOpacity style={styles.glNews} onPress={() => navigation.navigate("해외 뉴스")}>
+            <Ionicons name="globe-outline" color={'grey'} size={30} />
+            <Text style={{color:'grey', fontSize: 12}}>해외 뉴스</Text>
+        </TouchableOpacity>
+
+
+        <TouchableOpacity style={styles.mypage} onPress={() => navigation.navigate("마이 페이지")}>
+            <Ionicons name="person-circle-outline" color={'grey'} size={30} />
+            <Text style={{color:'grey', fontSize: 12}}>마이 페이지</Text>
+        </TouchableOpacity>
+
+    </View>
+
+    </>
+
     )
 
 }
@@ -71,7 +101,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'rgba(34,35,38, 1)',
         width: '100%',
-        height: '100%',
+        height: '90%',
         padding: '5%'
     },
 
@@ -96,10 +126,36 @@ const styles = StyleSheet.create({
     detailCall:{
         backgroundColor: 'rgba(50,50,54, 1)',
         width:'100%',
-        height:'50%',
+        height:'45%',
         marginTop:'10%',
         borderRadius:20,
         padding:'5%'
     },
+    bottomTab:{
+        backgroundColor: 'rgba(50,50,54, 1)',
+        height: '10%',
+        width:'100%',
+        flexDirection:"row",
+        borderTopWidth:2,
+        borderColor:'grey',
+        justifyContent:'space-between',
+        paddingTop:'2%'
+    },
+    home:{
+        width:'25%',
+        alignItems:'center'
+    },
+    krNews:{
+        width:'25%',
+        alignItems:'center'
+    },
+    glNews:{
+        width:'25%',
+        alignItems:'center'
+    },
+    mypage:{
+        width:'25%',
+        alignItems:'center'
+    }
 
 });

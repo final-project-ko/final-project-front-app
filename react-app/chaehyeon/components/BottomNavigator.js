@@ -6,6 +6,7 @@ import GlobalNewsNavigator from './globalnewscategory/GlobalNewsNavigator';
 import KoreaNewsNavigator from './koreanewscategory/KoreaNewsNavigator';
 import Home from "./Home";
 import Mypage from "./Mypage";
+import {useNavigation} from "@react-navigation/native";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -13,7 +14,7 @@ const BottomNavigator = () => {
 
   const currentDate = new Date();
   const formattedDate = ` ${currentDate.getMonth() + 1}월 ${currentDate.getDate()}일`;
-
+  const navigation = useNavigation();
 
   return (
 
@@ -22,11 +23,11 @@ const BottomNavigator = () => {
   screenOptions={{
     tabBarStyle: {
       backgroundColor: '#323236', // Background color of the tab bar
-      height: 52 // Height of the tab bar
+      height: '10%' // Height of the tab bar
     },
     headerStyle: {
       backgroundColor: '#222326', // Header background color
-      height: 70, // Header height
+      height: 130, // Header height
 
     },
     headerTitleStyle: {
@@ -43,13 +44,14 @@ const BottomNavigator = () => {
         style={{ marginRight: 20 }} // Adjust the right margin as needed
         onPress={() => {
           // Navigate to SettingsScreen or open settings modal
+            navigation.navigate("Management");
         }}
       />
     )
   }}
 >
-      <BottomTab.Screen 
-        name="홈" 
+      <BottomTab.Screen
+        name="홈"
         component={Home}
         options={{
           tabBarIcon: ({color, size}) => (
@@ -59,9 +61,9 @@ const BottomNavigator = () => {
           tabBarLabelStyle: { fontSize: 12, fontWeight: 'bold' } // Customize tab label style
         }}
       />
-      <BottomTab.Screen 
-        name="국내 뉴스" 
-        component={KoreaNewsNavigator} 
+      <BottomTab.Screen
+        name="국내 뉴스"
+        component={KoreaNewsNavigator}
         options={{
           tabBarIcon: ({color, size}) => (
             <Ionicons name="newspaper-outline" color={color} size={size} />
@@ -69,9 +71,9 @@ const BottomNavigator = () => {
           tabBarLabelStyle: { fontSize: 12, fontWeight: 'bold' } // Customize tab label style
         }}
       />
-      <BottomTab.Screen 
-        name="해외 뉴스" 
-        component={GlobalNewsNavigator} 
+      <BottomTab.Screen
+        name="해외 뉴스"
+        component={GlobalNewsNavigator}
         options={{
           tabBarIcon: ({color, size}) => (
             <Ionicons name="globe-outline" color={color} size={size} />
@@ -79,7 +81,7 @@ const BottomNavigator = () => {
           tabBarLabelStyle: { fontSize: 12, fontWeight: 'bold' } // Customize tab label style
         }}
       />
-      <BottomTab.Screen 
+      <BottomTab.Screen
         name="마이 페이지"
         component={Mypage}
         options={{

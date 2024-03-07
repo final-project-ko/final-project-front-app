@@ -53,6 +53,7 @@ export default function App() {
         <Stack.Screen
             name="Callcenter"
             component={Callcenter}
+
         />
         <Stack.Screen
             name="Questions"
@@ -66,6 +67,7 @@ export default function App() {
             name="Policy"
             component={Policy}
         />
+
       </Stack.Navigator>
     </NavigationContainer>
 
