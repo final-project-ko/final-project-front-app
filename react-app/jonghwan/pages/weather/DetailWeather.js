@@ -34,7 +34,7 @@ const DetailWeather = () =>{
     const defaultImg = require('../../../assets/sunny.jpg');
 
     // const Tab = createBottomTabNavigator();
-    const API_KEY = "5c109176cb7f758390478b3cbdcc8d63";
+    const API_KEY = process.env.API_KEY;
     const latitude = 38;
     const longitude = 127;
 
