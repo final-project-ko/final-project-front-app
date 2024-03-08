@@ -1,15 +1,22 @@
 import {Button, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {Ionicons} from "@expo/vector-icons";
+import React from "react";
+import {useNavigation} from "@react-navigation/native";
 
 
 const Management = () => {
+
+    const navigation = useNavigation();
+
+
     return(
         <View style={styles.container}>
 
             <View style={styles.suggest}>
-                <View style={styles.memberName}>
+
+                <TouchableOpacity style={styles.memberName} onPress={() => navigation.navigate("Login")}>
                     <Text style={{color:'white', fontSize:16}}>연동 정보</Text>
-                </View>
+                </TouchableOpacity>
 
                 <View style={{flexDirection:'row' , width:'70%', justifyContent:"space-between",  alignItems:'center', marginTop:'15%'}}>
 

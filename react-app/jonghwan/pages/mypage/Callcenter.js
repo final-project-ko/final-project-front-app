@@ -1,12 +1,52 @@
-import {ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {Button, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {Ionicons} from "@expo/vector-icons";
 import {useNavigation} from "@react-navigation/native";
-import React from "react";
+import React, {useMemo, useState} from "react";
+import useStore from "../../../store";
+// import * as PropTypes from "prop-types";
+// import ReactQuill from 'react-quill';
+import {homeUrl} from "../../../ifconfig/Inet";
+
 
 const Callcenter = () => {
 
 
     const navigation = useNavigation();
+
+    const { userId, auth, setUserInfo } = useStore();
+
+
+    // 새로운 문의사항을 작성하기 위한 상태
+    const [newInquiry, setNewInquiry] = useState("");
+
+
+    const [title,setTitle] = useState("");
+
+
+
+
+    // 문의사항을 서버에 제출하는 함수
+    const submitInquiry = async () => {
+
+        try {
+            const response = await fetch(`http://${homeUrl}:8080/api/qna/insertInquiry`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    title:title,
+                    id:userId,
+                    text: newInquiry
+                }),
+            }).then(response => response.json())
+                .then(alert("등록 완료")).then(setTitle(""),setNewInquiry(""))
+
+        } catch (error) {
+            alert("에러 발생")
+        }
+    };
+
 
     return(
 <>
@@ -57,9 +97,31 @@ const Callcenter = () => {
                     <Text style={{color:'white', fontSize:20}}>1:1 문의하기</Text>
                 </View>
 
+                <View>
+                    <Text>제목</Text>
+                    <TextInput
+                        onChangeText={setTitle}
+                        value={title}
+                        placeholder="제목을 입력하세요"
+                    />
+                    <Text>1:1 문의</Text>
+                    <TextInput
+                        onChangeText={setNewInquiry}
+                        value={newInquiry}
+                        placeholder="문의 내용을 입력하세요"
+                        multiline={true}
+                    />
+                    <Button title="작성하기" onPress={submitInquiry} />
+                </View>
+
+
+
             </View>
 
         </View>
+
+
+
 
     <View style={styles.bottomTab}>
         <TouchableOpacity style={styles.home} onPress={() => navigation.navigate("홈")}>

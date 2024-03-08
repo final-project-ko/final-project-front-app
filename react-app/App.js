@@ -14,6 +14,7 @@ import Callcenter from "./jonghwan/pages/mypage/Callcenter";
 import Questions from "./jonghwan/pages/mypage/Questions";
 import Notice from "./jonghwan/pages/mypage/Notice";
 import Policy from "./jonghwan/pages/mypage/Policy";
+import Login from "./jonghwan/pages/mypage/Login";
 
 const Stack = createStackNavigator();
 
@@ -66,6 +67,10 @@ export default function App() {
         <Stack.Screen
             name="Policy"
             component={Policy}
+        />
+        <Stack.Screen
+            name="Login"
+            component={Login}
         />
 
       </Stack.Navigator>
