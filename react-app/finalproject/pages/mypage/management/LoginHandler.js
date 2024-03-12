@@ -5,7 +5,6 @@ import axios from 'axios';
 import { homeUrl } from "../../../../ifconfig/Inet";
 import {useNavigation} from "@react-navigation/native";
 import asyncStorage from "@react-native-async-storage/async-storage/src/AsyncStorage";
-import RNRestart from 'react-native-restart';
 
 const LoginHandler = () => {
     const navigation = useNavigation();
@@ -27,7 +26,7 @@ const LoginHandler = () => {
             const response = await axios.get(`http://${homeUrl}:8080/login/oauth/?code=${code}`);
             const data = response.data;
             console.log("제발"+data);
-            asyncStorage.setItem("todayId", data.accessToken);
+            asyncStorage.setItem("KtodayId", data.accessToken);
             // localStorage에 accessToken 저장
             // 계속 사용할 정보(예: 이름 등)은 AsyncStorage에 저장하십시오.
             /* AsyncStorage.setItem("name", data.account.name); */

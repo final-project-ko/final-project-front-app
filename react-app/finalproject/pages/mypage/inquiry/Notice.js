@@ -3,7 +3,7 @@ import {useNavigation} from "@react-navigation/native";
 import {Ionicons} from "@expo/vector-icons";
 import React, {useEffect, useState} from "react";
 import {homeUrl} from "../../../../ifconfig/Inet";
-
+import HTML from 'react-native-render-html';
 
 const Notice = () => {
 
@@ -93,16 +93,23 @@ const Notice = () => {
                 {articles.map((article, index) => (
                     <View style={styles.noticeItem} key={index}>
                         <TouchableOpacity
-                            style={styles.allNotice}
-                            onPress={() => onClickHandler(index)}
+                            onPress={() => onClickHandler(index)} style={{justifyContent: 'space-between'}}
                         >
-                            <Text style={styles.noticeTitle}>
-                                {article.notice_title}
-                            </Text>
-                            {visibleContentIndex === index && (
-                                <Text style={styles.noticeContent}>
-                                    {article.notice_content}
+                            <View style={{flexDirection:'row'}}>
+                                {visibleContentIndex === index ? (
+                                    <Ionicons name="caret-down-outline" color={'white'} size={25} />
+                                    ): (
+                                    <Ionicons name="caret-forward-outline" color={'white'} size={25} />
+                                    )}
+                                <Text style={styles.noticeTitle}>
+                                    {article.notice_title}
                                 </Text>
+                            </View>
+
+                            {visibleContentIndex === index && (
+                                <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center', marginTop:'5%'}}>
+                                    <HTML  tagsStyles={tagsStyles} source={{ html: article.notice_content }} />
+                                </View>
                             )}
                         </TouchableOpacity>
                     </View>
@@ -148,11 +155,15 @@ const Notice = () => {
 export default Notice;
 
 const styles = StyleSheet.create({
+
+    noticeTitle:{
+        color:'white',
+        fontSize:17
+    },
     noticeItem:{
-        height:100,
-        marginBottom:'5%',
-        borderWidth:1,
-        borderRadius:10,
+        height:'auto',
+        marginBottom:'10%',
+
         // flex:1
     },
     container: {
@@ -216,3 +227,10 @@ const styles = StyleSheet.create({
     }
 
 });
+
+const tagsStyles = {
+    p: {
+        color: 'white',
+        fontSize: 13,
+    },
+};

@@ -10,11 +10,8 @@ const Login = () => {
 
     const navigation = useNavigation();
 
-    const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
-    const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URL;
-
-    const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
     const kakao = require('../../../../assets/kakao1.png');
+    const naver = require('../../../../assets/naver.png');
 
     const [login,setLogin] = useState();
     const { userId, auth,userName,userEmail, setUserInfo } = useStore();
@@ -23,35 +20,53 @@ const Login = () => {
         navigation.navigate("LoginHandler");
     };
 
-        console.log({REST_API_KEY});
-        console.log({REDIRECT_URI})
+    const openNaverAuth = () => {
+        navigation.navigate("NaverHandeler");
+    };
 
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const accessToken = await AsyncStorage.getItem("todayId");
-                console.log(accessToken);
-                if (accessToken) {
-                    if (tokenValid(accessToken)) {
+                const kAccessToken = await AsyncStorage.getItem("KtodayId");
+                const nAccessToken = await AsyncStorage.getItem("NtodayId"); // NtodayId 가져오기
+                console.log(kAccessToken, nAccessToken);
+
+                // 하나의 토큰이라도 존재하는 경우에 실행
+                if (kAccessToken || nAccessToken) {
+                    if (tokenValid(kAccessToken) || tokenValid(nAccessToken)) {
                         console.log("토큰 있음");
+
                         try {
-                            const response = await fetch(`http://${homeUrl}:8080/login/kakao`, {
-                                method: "POST",
-                                headers: {
-                                    "Content-Type": "application/json"
-                                },
-                                body: JSON.stringify({
-                                    accessToken: accessToken
-                                })
-                            });
-                            const data = await response.json();
-                            console.log("dfehu" + data);
-                            setUserInfo(data.id, data.userAuth, data.name, data.email);
-                            /* setUserId(data.id);
-                            setAuth(data.userAuth); */
+                            if (kAccessToken) { // Kakao 토큰이 존재하는 경우
+                                const kResponse = await fetch(`http://${homeUrl}:8080/login/kakao`, {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                                    body: JSON.stringify({
+                                        accessToken: kAccessToken
+                                    })
+                                });
+                                const kData = await kResponse.json();
+                                console.log("Kakao data:", kData);
+                                setUserInfo(kData.id, kData.userAuth, kData.name, kData.email);
+                            }
+                            if (nAccessToken) { // Naver 토큰이 존재하는 경우
+                                const nResponse = await fetch(`http://${homeUrl}:8080/naver/login`, {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                                    body: JSON.stringify({
+                                        accessToken: nAccessToken
+                                    })
+                                });
+                                const nData = await nResponse.json();
+                                console.log("Naver data:", nData);
+                                setUserInfo(nData.id, nData.userAuth, nData.name, nData.email);
+                            }
                             setLogin(true);
-                            console.log("userId :" + userId);
                         } catch (error) {
                             console.error(error);
                             setLogin(false);
@@ -68,15 +83,15 @@ const Login = () => {
         };
 
         fetchData();
-    }, []); // accessToken을 의존성 배열에 추가
-
+    }, []);
 
     const loginHandler = async () => {
         const loginBtn = login? "LogOut" : "LogIn";
         if (loginBtn === "LogOut") {
             try {
                 console.log(AsyncStorage);
-                await AsyncStorage.removeItem("todayId");
+                await AsyncStorage.removeItem("KtodayId");
+                await AsyncStorage.removeItem("NtodayId");
                 setLogin(false);
                 console.log("고구마" + AsyncStorage);
                 navigation.navigate("홈");
@@ -93,15 +108,18 @@ const Login = () => {
 
                 <View style={styles.container}>
 
-                    <TouchableOpacity style={{width:300, height:300, backgroundColor:'white'}} onPress={openKakaoAuth}>
-                        {/* 이미지를 보여주기 위해 Image 컴포넌트를 사용합니다. */}
-                        <Image source={kakao} />
-
-                        <Text>카카오</Text>
+                    <TouchableOpacity style={{height:'auto'}} onPress={openKakaoAuth}>
+                        <Image style={{width:250, height:60, borderRadius:10}} source={kakao} />
                     </TouchableOpacity>
+
+                    <TouchableOpacity style={{height:'auto', marginTop: 20}} onPress={openNaverAuth}>
+                        <Image style={{width:250, height:60, borderRadius:10}} source={naver} />
+                    </TouchableOpacity>
+
+
                     {login && (
-                        <TouchableOpacity style={{ backgroundColor: '#008BDA', padding: 10, borderRadius: 5 }} onPress={loginHandler}>
-                            <Text style={{ color: 'white' }}>LogOut</Text>
+                        <TouchableOpacity style={{ backgroundColor: '#008BDA', padding: 10, borderRadius: 5 , marginTop: 50, width:200, height:50, justifyContent:'center', alignItems:'center'}} onPress={loginHandler}>
+                            <Text style={{ color: 'white', fontSize: 18 }}>LogOut</Text>
                         </TouchableOpacity>
                     )}
                 </View>
@@ -119,7 +137,8 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         alignItems:"center",
-        paddingTop:100
+        paddingTop:100,
+        justifyContent:'center'
     },
 
 })

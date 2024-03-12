@@ -1,11 +1,19 @@
-import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {Alert, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {Ionicons} from "@expo/vector-icons";
 import {useNavigation} from "@react-navigation/native";
-
+import useStore from "../../../../store";
 const Inquiry = () => {
 
     const navigation = useNavigation();
+    const { userId } = useStore();
 
+    const authPress = () => {
+        if (userId) {
+            navigation.navigate("Callcenter");
+        } else {
+            alert("로그인이 필요합니다");
+        }
+    }
 
     return(
         <View style={styles.container}>
@@ -17,7 +25,8 @@ const Inquiry = () => {
 
                 <View style={{flexDirection:'row' , width:'70%', justifyContent:"space-between", height:'30%', alignItems:'center', marginTop:'10%'}}>
 
-                    <TouchableOpacity style={{flexDirection:'row' , width: '33%' ,  gap: 10 }} onPress={() => navigation.navigate("Callcenter")}>
+
+                    <TouchableOpacity style={{flexDirection:'row' , width: '33%' ,  gap: 10 }} onPress={authPress}>
                            <Ionicons name="ellipse-outline" size={15} color={'white'}/>
                            <Text style={{color:'white', }}>고객센터</Text>
                     </TouchableOpacity>

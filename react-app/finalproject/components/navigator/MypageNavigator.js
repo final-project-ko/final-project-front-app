@@ -1,21 +1,20 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Bookmark from "../../pages/mypage/Bookmark";
-import KBusinessAll from "../../pages/news/koreanewscategory/KCategoryBusiness";
-import KEntertainmentAll from "../../pages/news/koreanewscategory/KCategoryEntertainment";
 import React, {useEffect, useState} from "react";
-import CategoryEdit from "../../pages/mypage/CategoryEdit";
 import Management from "../../pages/mypage/management/Management";
 import {Ionicons} from "@expo/vector-icons";
-import Mypage from "../../pages/mypage/Mypage";
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import Inquiry from "../../pages/mypage/inquiry/Inquiry";
 import useStore from "../../../store";
+import {useNavigation} from "@react-navigation/native";
+import InquiryAnswer from "../../pages/mypage/InquiryAnswer";
 
 const Tab = createMaterialTopTabNavigator();
 
 const MypageNavigator =()=>{
 
     const { userName } = useStore();
+    const navigation = useNavigation();
 
 
     return(
@@ -26,10 +25,10 @@ const MypageNavigator =()=>{
         tabBar={(props) => <CustomTabBar {...props}/>}
     >
         <Tab.Screen
-            name="로그인이 필요합니다."
+            name="Inquiry."
             component={Inquiry}
             options={{
-                tabBarLabel: userName + "님",
+                tabBarLabel: userName ? userName + "님" : "로그인이 필요합니다" ,
 
             }}
 
@@ -50,10 +49,10 @@ const MypageNavigator =()=>{
         />
 
         <Tab.Screen
-            name="CategoryEdit"
-            component={CategoryEdit}
+            name="InquiryAnswer"
+            component={InquiryAnswer}
             options={{
-                tabBarLabel: "카테고리 관리",
+                tabBarLabel: "문의사항 답변",
                 tabBarIcon: () => (
                     <Ionicons name="file-tray-stacked-outline" size={20} color={'white'}/>
                 ),
@@ -118,7 +117,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
                         case 'Bookmark':
                             iconName = 'bookmark-outline';
                             break;
-                        case 'CategoryEdit':
+                        case 'InquiryAnswer':
                             iconName = 'file-tray-stacked-outline';
                             break;
                         case 'Management':

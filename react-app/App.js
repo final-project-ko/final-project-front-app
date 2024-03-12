@@ -15,6 +15,8 @@ import Notice from "./finalproject/pages/mypage/inquiry/Notice";
 import Policy from "./finalproject/pages/mypage/inquiry/Policy";
 import Login from "./finalproject/pages/mypage/management/Login";
 import LoginHandler from "./finalproject/pages/mypage/management/LoginHandler";
+import NaverHandeler from "./finalproject/pages/mypage/management/NaverHandler";
+import Mypage from "./finalproject/pages/mypage/Mypage";
 
 const Stack = createStackNavigator();
 
@@ -73,6 +75,12 @@ export default function App() {
             name="LoginHandler"
             component={LoginHandler}
         />
+
+        <Stack.Screen
+            name="NaverHandeler"
+            component={NaverHandeler}
+        />
+
 
       </Stack.Navigator>
     </NavigationContainer>

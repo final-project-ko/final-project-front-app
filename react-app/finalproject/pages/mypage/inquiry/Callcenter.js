@@ -1,7 +1,7 @@
-import {Button, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {Button, Keyboard, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {Ionicons} from "@expo/vector-icons";
 import {useNavigation} from "@react-navigation/native";
-import React, {useMemo, useState} from "react";
+import React, {useMemo, useRef, useState} from "react";
 import useStore from "../../../../store";
 // import * as PropTypes from "prop-types";
 // import ReactQuill from 'react-quill';
@@ -15,12 +15,27 @@ const Callcenter = () => {
 
     const { userId, auth, setUserInfo } = useStore();
 
-
     // 새로운 문의사항을 작성하기 위한 상태
     const [newInquiry, setNewInquiry] = useState("");
 
-
     const [title,setTitle] = useState("");
+
+    const titleInputRef = useRef(null);
+    const inquiryInputRef = useRef(null);
+
+
+    const handleBackgroundPress = () => {
+        // 터치한 위치가 TextInput 영역 내에 있는지 확인하고 포커스를 잃도록 하는 기능
+        if (titleInputRef.current && titleInputRef.current.isFocused()) {
+            titleInputRef.current.blur();
+        }
+        if (inquiryInputRef.current && inquiryInputRef.current.isFocused()) {
+            inquiryInputRef.current.blur();
+        }
+        // 키보드를 감춥니다.
+        Keyboard.dismiss();
+    };
+
 
 
 
@@ -50,7 +65,7 @@ const Callcenter = () => {
 
     return(
 <>
-        <View style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={handleBackgroundPress} activeOpacity={1}>
 
             <View style={styles.suggest}>
                 <View style={styles.memberName}>
@@ -98,27 +113,33 @@ const Callcenter = () => {
                 </View>
 
                 <View>
-                    <Text>제목</Text>
+                    <Text style={{color:'rgba(65,174,236,1)', fontSize:15, fontWeight:'bold'}}>제목</Text>
                     <TextInput
+                        style={{borderWidth:1, borderColor:'grey', borderRadius:5, marginTop:10, height: 30, color:'white'}}
                         onChangeText={setTitle}
                         value={title}
                         placeholder="제목을 입력하세요"
                     />
-                    <Text>1:1 문의</Text>
-                    <TextInput
-                        onChangeText={setNewInquiry}
-                        value={newInquiry}
-                        placeholder="문의 내용을 입력하세요"
-                        multiline={true}
-                    />
-                    <Button title="작성하기" onPress={submitInquiry} />
+                    <Text style={{color:'rgba(65,174,236,1)', fontSize:15, fontWeight:'bold',marginTop:10}}>내용</Text>
+
+                    <ScrollView style={{borderWidth:1, borderColor:'grey',height:150, borderRadius:5, marginTop:10}}>
+                        <TextInput
+                            style={{ color:'white'}}
+                            onChangeText={setNewInquiry}
+                            value={newInquiry}
+                            placeholder="문의 내용을 입력하세요"
+                            multiline={true}
+                        />
+                    </ScrollView>
+
+                    <View style={{marginTop:20}}>
+                        <Button title="제출" onPress={submitInquiry} />
+                    </View>
                 </View>
-
-
 
             </View>
 
-        </View>
+        </TouchableOpacity>
 
 
 
@@ -188,7 +209,7 @@ const styles = StyleSheet.create({
     detailCall:{
         backgroundColor: 'rgba(50,50,54, 1)',
         width:'100%',
-        height:'45%',
+        height:'auto',
         marginTop:'10%',
         borderRadius:20,
         padding:'5%'

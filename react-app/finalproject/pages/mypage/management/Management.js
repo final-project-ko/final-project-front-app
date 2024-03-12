@@ -55,20 +55,6 @@ const Management = () => {
 
                 </View>
 
-                {/*<View style={{flexDirection:'row' , width:'70%', justifyContent:"space-between",  alignItems:'center', marginTop:'10%'}}>*/}
-
-                {/*    <View style={{flexDirection:'row' , width: '33%' ,  gap: 10 }}>*/}
-                {/*        <Ionicons name="ellipse-outline" size={10} color={'grey'}/>*/}
-                {/*        <Text style={{color:'rgba(183,184,188,1)', }}>가입 일시</Text>*/}
-                {/*    </View>*/}
-
-
-
-                {/*    <View style={{flexDirection:'row' , width: '51%' ,  gap: 10 }}>*/}
-                {/*        <Text style={{color:'white', }}></Text>*/}
-                {/*    </View>*/}
-
-                {/*</View>*/}
 
                 <TouchableOpacity style={styles.button} onPress={() => {}}>
                     <Text style={styles.secessionBtn}>회원탈퇴</Text>
