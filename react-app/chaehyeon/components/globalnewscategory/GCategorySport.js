@@ -1,16 +1,11 @@
-<<<<<<< HEAD
-import { StyleSheet, View } from "react-native";
 
-const GSportAll = () =>{
-
-=======
 import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {useEffect, useState} from "react";
 import {useNavigation} from "@react-navigation/native";
 import {homeUrl} from "../../../ifconfig/Inet";
 
 const GSportAll = () =>{
->>>>>>> 7fd53f0d81a22392c3a111434febd6a0cd4509fb
+
     const navigation = useNavigation();
 
     const [sportsArticles, setSportsArticles] = useState([]);
@@ -104,7 +99,4 @@ const styles = StyleSheet.create({
         textAlign: "center"
     },
 });
-<<<<<<< HEAD
-=======
 
->>>>>>> 7fd53f0d81a22392c3a111434febd6a0cd4509fb

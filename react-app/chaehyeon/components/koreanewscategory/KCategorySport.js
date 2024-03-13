@@ -1,14 +1,11 @@
-<<<<<<< HEAD
-import { useNavigation } from "@react-navigation/native";
-import { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
-import { ScrollView } from "react-native/Libraries/Components/ScrollView/ScrollView";
-=======
+
+
+
 import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {useEffect, useState} from "react";
 import {useNavigation} from "@react-navigation/native";
 import {homeUrl} from "../../../ifconfig/Inet";
->>>>>>> 7fd53f0d81a22392c3a111434febd6a0cd4509fb
+
 
 const KSportAll = () =>{
     const navigation = useNavigation();
@@ -103,9 +100,4 @@ const styles = StyleSheet.create({
         marginTop: '5%',
         textAlign: "center"
     },
-<<<<<<< HEAD
 });
-=======
-});
-
->>>>>>> 7fd53f0d81a22392c3a111434febd6a0cd4509fb

@@ -1,6 +1,6 @@
 
 
-export const homeUrl = "172.30.1.49";
+export const homeUrl = "192.168.0.159";
 
 
 
