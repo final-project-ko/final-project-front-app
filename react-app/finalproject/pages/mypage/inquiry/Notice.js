@@ -9,8 +9,9 @@ const Notice = () => {
 
     const navigation = useNavigation();
 
-    const [articles, setArticles] = useState([]);
+
     const [visibleContentIndex, setVisibleContentIndex] = useState(-1);
+    const [articles, setArticles] = useState([]);
 
     useEffect(() => {
         const noticeList = async () => {

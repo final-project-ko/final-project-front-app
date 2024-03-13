@@ -23,7 +23,7 @@ const LoginHandler = () => {
 
     const kakaoLogin = async (code) => {
         try {
-            const response = await axios.get(`http://${homeUrl}:8080/login/oauth/?code=${code}`);
+            const response = await axios.get(`http://${homeUrl}:8080/api/login/oauth/?code=${code}`);
             const data = response.data;
             console.log("제발"+data);
             asyncStorage.setItem("KtodayId", data.accessToken);

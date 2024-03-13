@@ -17,6 +17,7 @@ import Login from "./finalproject/pages/mypage/management/Login";
 import LoginHandler from "./finalproject/pages/mypage/management/LoginHandler";
 import NaverHandeler from "./finalproject/pages/mypage/management/NaverHandler";
 import Mypage from "./finalproject/pages/mypage/Mypage";
+import DetailBookmark from "./finalproject/pages/mypage/DetailBookmark";
 
 const Stack = createStackNavigator();
 
@@ -79,6 +80,11 @@ export default function App() {
         <Stack.Screen
             name="NaverHandeler"
             component={NaverHandeler}
+        />
+
+        <Stack.Screen
+            name="DetailBookmark"
+            component={DetailBookmark}
         />
 
 

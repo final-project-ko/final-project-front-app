@@ -39,7 +39,7 @@ const Login = () => {
 
                         try {
                             if (kAccessToken) { // Kakao 토큰이 존재하는 경우
-                                const kResponse = await fetch(`http://${homeUrl}:8080/login/kakao`, {
+                                const kResponse = await fetch(`http://${homeUrl}:8080/api/login/kakao`, {
                                     method: "POST",
                                     headers: {
                                         "Content-Type": "application/json"
@@ -53,7 +53,7 @@ const Login = () => {
                                 setUserInfo(kData.id, kData.userAuth, kData.name, kData.email);
                             }
                             if (nAccessToken) { // Naver 토큰이 존재하는 경우
-                                const nResponse = await fetch(`http://${homeUrl}:8080/naver/login`, {
+                                const nResponse = await fetch(`http://${homeUrl}:8080/api/naver/login`, {
                                     method: "POST",
                                     headers: {
                                         "Content-Type": "application/json"
