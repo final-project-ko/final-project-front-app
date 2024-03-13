@@ -3,12 +3,21 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import BottomNavigator from './chaehyeon/components/BottomNavigator';
-import ShortNewsScreen from './chaehyeon/components/ShortNewsScreen';
-import Weather from "./jonghwan/components/WeatherAPI";
-import DetailWeather from "./jonghwan/pages/DetailWeather";
-import DetailNews from "./jonghwan/pages/DetailNews";
-import News from "./jonghwan/components/News";
+import BottomNavigator from './finalproject/components/navigator/BottomNavigator';
+import Weather from "./finalproject/components/weatherCompo/WeatherAPI";
+import DetailWeather from "./finalproject/pages/weather/DetailWeather";
+import DetailNews from "./finalproject/pages/news/DetailNews";
+import Bookmark from "./finalproject/pages/mypage/Bookmark";
+import MypageNavigator from "./finalproject/components/navigator/MypageNavigator";
+import Callcenter from "./finalproject/pages/mypage/inquiry/Callcenter";
+import Questions from "./finalproject/pages/mypage/inquiry/Questions";
+import Notice from "./finalproject/pages/mypage/inquiry/Notice";
+import Policy from "./finalproject/pages/mypage/inquiry/Policy";
+import Login from "./finalproject/pages/mypage/management/Login";
+import LoginHandler from "./finalproject/pages/mypage/management/LoginHandler";
+import NaverHandeler from "./finalproject/pages/mypage/management/NaverHandler";
+import Mypage from "./finalproject/pages/mypage/Mypage";
+import DetailBookmark from "./finalproject/pages/mypage/DetailBookmark";
 
 const Stack = createStackNavigator();
 
@@ -22,10 +31,6 @@ export default function App() {
         <Stack.Screen
           name="BottomNavigator"
           component={BottomNavigator}
-        />
-          <Stack.Screen
-          name="ShortNewsScreen"
-          component={ShortNewsScreen}
         />
         <Stack.Screen
             options={{headerShown: false}}
@@ -41,6 +46,48 @@ export default function App() {
             name="DetailNews"
             component={DetailNews}
         />
+        <Stack.Screen
+            name="MypageNavigator"
+            component={MypageNavigator}
+        />
+        <Stack.Screen
+            name="Callcenter"
+            component={Callcenter}
+
+        />
+        <Stack.Screen
+            name="Questions"
+            component={Questions}
+        />
+        <Stack.Screen
+            name="Notice"
+            component={Notice}
+        />
+        <Stack.Screen
+            name="Policy"
+            component={Policy}
+        />
+        <Stack.Screen
+            name="Login"
+            component={Login}
+        />
+
+        <Stack.Screen
+            name="LoginHandler"
+            component={LoginHandler}
+        />
+
+        <Stack.Screen
+            name="NaverHandeler"
+            component={NaverHandeler}
+        />
+
+        <Stack.Screen
+            name="DetailBookmark"
+            component={DetailBookmark}
+        />
+
+
       </Stack.Navigator>
     </NavigationContainer>
 
