@@ -9,7 +9,6 @@ const DetailNews = ({ route })=>{
 
     const {article} = route.params;
     const {userId} = useStore();
-    console.log("sdsd"+article.code);
 
 
 

@@ -20,7 +20,6 @@ const Bookmark = () => {
                     method: "GET",
                 }).then(res => res.json())
                     .then(data => {
-                        console.log("고구마" + data);
                         setBookmark(data);
 
                     })
@@ -35,38 +34,6 @@ const Bookmark = () => {
 
 
 
-
-    // const renderBookmark = () => {
-    //     const itemsPerRow = 2;
-    //     const rows = [];
-    //     for (let i = 0; i < bookmark.length; i += itemsPerRow) {
-    //         const rowItems = [];
-    //         for (let j = i; j < i + itemsPerRow && j < bookmark.length; j++) {
-    //             rowItems.push(
-    //                 <View>
-    //                     <TouchableOpacity onPress={}>
-    //                         <Ionicons name="close-circle-outline" size={15} color={"white"}/>
-    //                     </TouchableOpacity>
-    //                     <TouchableOpacity  onPress={() => navigation.navigate("DetailBookmark", { bookmarks: bookmark[j] , bookmark})}>
-    //
-    //                         <View style={styles.content}>
-    //                             <Image source={{ uri: bookmark[j].image }} style={styles.image} />
-    //                             <Text style={styles.articleText}>
-    //                                 {bookmark[j].title.length > 24 ? bookmark[j].title.substring(0, 24) + '...' : bookmark[j].title}
-    //                             </Text>
-    //                         </View>
-    //                     </TouchableOpacity>
-    //                 </View>
-    //             );
-    //         }
-    //         rows.push(
-    //             <View key={i} style={styles.row}>
-    //                 {rowItems}
-    //             </View>
-    //         );
-    //     }
-    //     return rows;
-    // };
     const deleteBookmark = async (index) => {
         try {
             const response = await fetch(`http://${homeUrl}:8080/api/bookmark/delete/${userId}/${bookmark[index].bookmarkCode}`, {
@@ -119,26 +86,21 @@ const Bookmark = () => {
     return(
 
         <View style={styles.container}>
-            <ScrollView showsVerticalScrollIndicator={false}>
-                {renderBookmark()}
-            </ScrollView>
-            {/*{bookmark.length > 0 ? (*/}
-            {/*    bookmark.map((bookmark, index) => (*/}
-            {/*        <View key={index}>*/}
-            {/*            <Text>{bookmark.title}</Text>*/}
-            {/*            <Text>{bookmark.description}</Text>*/}
-            {/*        </View>*/}
-            {/*    ))*/}
-            {/*) : (*/}
-            {/*    <>*/}
-            {/*        <Ionicons name="chatbubble-ellipses-outline" size={130} style={styles.iconStyle}/>*/}
-            {/*        {userId ? (*/}
-            {/*            <Text style={styles.fontBook}>북마크가 비어있습니다.</Text>*/}
-            {/*        ) : (*/}
-            {/*            <Text style={styles.loginText}>로그인이 필요합니다.</Text>*/}
-            {/*        )}*/}
-            {/*    </>*/}
-            {/*)}*/}
+
+            {bookmark.length > 0 ? (
+                <ScrollView showsVerticalScrollIndicator={false}>
+                    {renderBookmark()}
+                </ScrollView>
+            ) : (
+                <View style={{alignItems:'center'}}>
+                    <Ionicons name="chatbubble-ellipses-outline" size={130} style={styles.iconStyle}/>
+                    {userId ? (
+                        <Text style={styles.fontBook}>북마크가 비어있습니다.</Text>
+                    ) : (
+                        <Text style={styles.loginText}>로그인이 필요합니다.</Text>
+                    )}
+                </View>
+            )}
         </View>
 
 
@@ -152,10 +114,6 @@ export default Bookmark;
 
 const styles = StyleSheet.create({
     container: {
-        // backgroundColor: 'rgba(34,35,38, 1)',
-        // width: '100%',
-        // height: '100%',
-        // padding: '5%',
         justifyContent:"center",
         backgroundColor: 'rgba(34,35,38, 1)',
         width: '100%',
