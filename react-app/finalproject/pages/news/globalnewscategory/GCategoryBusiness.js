@@ -16,7 +16,7 @@ const GBusinessAll = () => {
                 const responseBusiness = await fetch(`http://${homeUrl}:8080/api/news/categoryNews/${business}`);
                 const dataBusiness = await responseBusiness.json();
                 setBusinessArticles(dataBusiness.articles);
-                console.log("data", dataBusiness);
+                // console.log("data", dataBusiness);
             } catch (error) {
                 console.log("Error fetching data", error);
             }

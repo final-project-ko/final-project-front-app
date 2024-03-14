@@ -21,24 +21,40 @@ const LoginHandler = () => {
         }
     };
 
+    // const kakaoLogin = async (code) => {
+    //     try {
+    //         const response = await axios.get(`http://${homeUrl}:8080/api/login/oauth/?code=${code}`);
+    //         const data = response.data;
+    //         asyncStorage.setItem("KtodayId", data.accessToken);
+    //         // localStorage에 accessToken 저장
+    //         // 계속 사용할 정보(예: 이름 등)은 AsyncStorage에 저장하십시오.
+    //         /* AsyncStorage.setItem("name", data.account.name); */
+    //         // 로그인이 성공하면 이동할 페이지
+    //         // navigate("/") 대신에 원하는 페이지로 이동하는 코드를 추가하십시오.
+    //         navigation.navigate('홈'); // 로그인 성공 시 홈페이지로 이동
+    //         // RNRestart.Restart();
+    //
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
+
     const kakaoLogin = async (code) => {
         try {
-            const response = await axios.get(`http://${homeUrl}:8080/api/login/oauth/?code=${code}`);
-            const data = response.data;
-            console.log("제발"+data);
+            const response = await fetch(`http://${homeUrl}:8080/api/login/oauth/?code=${code}`);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
             asyncStorage.setItem("KtodayId", data.accessToken);
-            // localStorage에 accessToken 저장
-            // 계속 사용할 정보(예: 이름 등)은 AsyncStorage에 저장하십시오.
-            /* AsyncStorage.setItem("name", data.account.name); */
-            // 로그인이 성공하면 이동할 페이지
-            // navigate("/") 대신에 원하는 페이지로 이동하는 코드를 추가하십시오.
-            navigation.navigate('홈'); // 로그인 성공 시 홈페이지로 이동
-            // RNRestart.Restart();
-
+            navigation.navigate('홈');
         } catch (error) {
             console.log(error);
         }
     };
+
+
+
 
     return (
         <WebView

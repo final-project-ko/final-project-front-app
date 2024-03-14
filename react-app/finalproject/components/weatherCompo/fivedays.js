@@ -1,13 +1,9 @@
 import {useEffect, useState} from "react";
-import {Alert, Button, ImageBackground, StyleSheet, Text, View} from "react-native";
+import {Alert, StyleSheet, Text, View} from "react-native";
 import axios from "axios";
 import Icon from 'react-native-vector-icons/Ionicons';
-
-import { TouchableOpacity } from 'react-native';
-// import {Tab} from "react-native-elements";
-// import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {useNavigation} from "@react-navigation/native";
-import FontAwesome5Icon from "react-native-vector-icons/FontAwesome5";
+
 
 
 const Fivedays = () =>{
@@ -40,14 +36,6 @@ const Fivedays = () =>{
     const [pop5, setPop5] = useState(0.0);
     const [date5, setDate5] = useState('');
 
-    const [min6, setMin6] = useState('');
-    const [max6, setMax6] = useState('');
-    const [status6, setStatus6] = useState('');
-    const [pop6, setPop6] = useState(0.0);
-    const [date6, setDate6] = useState('');
-
-
-
 
 
     const [error, setError] = useState(false);
@@ -68,13 +56,13 @@ const Fivedays = () =>{
                 const resWeather = await axios.get(
                     `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
                 ).then(response => {
-                    console.log("-")
-                    console.log(response.data.list[3].dt_txt);
-                    console.log(response.data.list[37].main.temp_max);
-                    console.log(response.data.list[37].main.humidity);
-                    console.log(response.data.list[21].dt_txt.split(" ")[0]);
-
-                    console.log("--")
+                    // console.log("-")
+                    // console.log(response.data.list[3].dt_txt);
+                    // console.log(response.data.list[37].main.temp_max);
+                    // console.log(response.data.list[37].main.humidity);
+                    // console.log(response.data.list[21].dt_txt.split(" ")[0]);
+                    //
+                    // console.log("--")
                     if(mounted) {
                         // let summary = response.data.list[0].main;
                         //
@@ -105,13 +93,6 @@ const Fivedays = () =>{
                         setStatus5(response.data.list[35].weather[0].main);
                         setPop5(response.data.list[37].main.humidity);
                         setDate5(response.data.list[29].dt_txt.substring(5, 10).replace("-","."));
-
-                        // setMin6(response.data.list[43].main.temp_min);
-                        // setMax6(response.data.list[45].main.temp_max);
-                        // setStatus6(response.data.list[37].weather[0].main);
-                        // setPop6(response.data.list[37].pop);
-                        // setDate6(response.data.list[37].dt_txt.substring(5, 10).replace("-","."));
-                        // setIsLoading(false);
 
                     }
                 });

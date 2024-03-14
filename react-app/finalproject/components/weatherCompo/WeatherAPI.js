@@ -3,8 +3,7 @@ import {Alert, Button, ImageBackground, StyleSheet, Text, View} from "react-nati
 import axios from "axios";
 import { TouchableOpacity } from 'react-native';
 import {useNavigation} from "@react-navigation/native";
-// import {API_KEY} from "react-native-dotenv";
-import Config from "react-native-config";
+
 
 const Weather = () =>{
     const [isLoading , setIsLoading] = useState(true);

@@ -26,7 +26,6 @@ const NaverHandeler = () => {
         try {
             const response = await axios.get(`http://${homeUrl}:8080/api/naver/oauth/?code=${code}`);
             const data = response.data;
-            console.log("제발"+data);
             asyncStorage.setItem("NtodayId", data.accessToken);
 
             navigation.navigate('홈');

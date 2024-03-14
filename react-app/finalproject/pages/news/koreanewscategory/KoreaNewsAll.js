@@ -31,7 +31,7 @@ const KoreaNewsAll =()=> {
                 const responseBusiness = await fetch(`http://${homeUrl}:8080/api/news/categoryNews/${business}`);
                 const dataBusiness = await responseBusiness.json();
                 setBusinessArticles(dataBusiness.articles);
-                console.log("data", dataBusiness);
+                // console.log("data", dataBusiness);
                 const responseEntertainment = await fetch(`http://${homeUrl}:8080/api/news/categoryNews/${entertainment}`);
                 const dataEntertainment = await responseEntertainment.json();
                 setEntertainmentArticles(dataEntertainment.articles);
