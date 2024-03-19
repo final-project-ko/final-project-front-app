@@ -7,7 +7,6 @@ import BottomNavigator from './finalproject/components/navigator/BottomNavigator
 import Weather from "./finalproject/components/weatherCompo/WeatherAPI";
 import DetailWeather from "./finalproject/pages/weather/DetailWeather";
 import DetailNews from "./finalproject/pages/news/DetailNews";
-import Bookmark from "./finalproject/pages/mypage/Bookmark";
 import MypageNavigator from "./finalproject/components/navigator/MypageNavigator";
 import Callcenter from "./finalproject/pages/mypage/inquiry/Callcenter";
 import Questions from "./finalproject/pages/mypage/inquiry/Questions";
@@ -16,15 +15,17 @@ import Policy from "./finalproject/pages/mypage/inquiry/Policy";
 import Login from "./finalproject/pages/mypage/management/Login";
 import LoginHandler from "./finalproject/pages/mypage/management/LoginHandler";
 import NaverHandeler from "./finalproject/pages/mypage/management/NaverHandler";
-import Mypage from "./finalproject/pages/mypage/Mypage";
 import DetailBookmark from "./finalproject/pages/mypage/DetailBookmark";
+import ShortNewsScreen from './finalproject/pages/shortpage/ShortNewsScreen';
+import { StatusBar } from 'expo-status-bar';
+
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-              {/* <Weather style={styles.weather} /> */}
+     <StatusBar backgroundColor="#1a2437" barStyle="light-content" />
 
       <Stack.Navigator
          screenOptions={{ headerShown: false }}>
@@ -85,6 +86,10 @@ export default function App() {
         <Stack.Screen
             name="DetailBookmark"
             component={DetailBookmark}
+        />
+         <Stack.Screen
+          name="ShortNewsScreen"
+          component={ShortNewsScreen}
         />
 
         {/*<Stack.Screen*/}
