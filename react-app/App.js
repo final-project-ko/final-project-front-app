@@ -87,6 +87,10 @@ export default function App() {
             component={DetailBookmark}
         />
 
+        {/*<Stack.Screen*/}
+        {/*    name="Management"*/}
+        {/*    component={Management}*/}
+        {/*/>*/}
 
       </Stack.Navigator>
     </NavigationContainer>

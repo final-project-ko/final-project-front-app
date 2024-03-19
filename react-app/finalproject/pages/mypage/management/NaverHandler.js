@@ -29,6 +29,8 @@ const NaverHandeler = () => {
             asyncStorage.setItem("NtodayId", data.accessToken);
 
             navigation.navigate('홈');
+            navigation.navigate('Login');
+            navigation.navigate('홈');
         } catch (error) {
             console.log(error);
         }

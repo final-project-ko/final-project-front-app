@@ -54,7 +54,7 @@ const MypageNavigator =()=>{
             options={{
                 tabBarLabel: "문의사항 답변",
                 tabBarIcon: () => (
-                    <Ionicons name="file-tray-stacked-outline" size={20} color={'white'}/>
+                    <Ionicons name="mail-open-outline" size={20} color={'white'}/>
                 ),
             }}
         />
@@ -118,7 +118,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
                             iconName = 'bookmark-outline';
                             break;
                         case 'InquiryAnswer':
-                            iconName = 'file-tray-stacked-outline';
+                            iconName = 'mail-open-outline';
                             break;
                         case 'Management':
                             iconName = 'settings-outline';

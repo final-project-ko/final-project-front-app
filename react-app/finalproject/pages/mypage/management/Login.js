@@ -5,6 +5,7 @@ import useStore from "../../../../store";
 import window from "@react-navigation/native/src/__mocks__/window";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {homeUrl} from "../../../../ifconfig/Inet";
+import loginHandler from "./LoginHandler";
 
 const Login = () => {
 
@@ -13,7 +14,7 @@ const Login = () => {
     const kakao = require('../../../../assets/kakao1.png');
     const naver = require('../../../../assets/naver.png');
 
-    const [login,setLogin] = useState();
+    const [login,setLogin] = useState(false);
     const { userId, auth,userName,userEmail, setUserInfo } = useStore();
 
     const openKakaoAuth = () => {
@@ -85,6 +86,8 @@ const Login = () => {
         fetchData();
     }, []);
 
+
+
     const loginHandler = async () => {
         const loginBtn = login? "LogOut" : "LogIn";
         if (loginBtn === "LogOut") {
@@ -100,6 +103,7 @@ const Login = () => {
             }
         }
     };
+
 
 
 

@@ -118,9 +118,9 @@ const Fivedays = () =>{
         <>
 
                             <View style={styles.inContainer}>
-                                    <View style={{height: '15%',width:'100%' ,flexDirection:'row',   justifyContent: 'space-between',borderBottomWidth: 2, borderBottomColor: 'grey'  }}>
-                                        <Text style={{fontSize:14, fontWeight:'bold', color:'white'}}> 오늘 </Text>
-                                        <Text style={{fontSize:14, fontWeight:'bold',color: 'rgba(39, 145, 205, 1)' }}> {pop}%
+                                    <View style={styles.weather}>
+                                        <Text style={styles.day}> 오늘 </Text>
+                                        <Text style={styles.pop}> {pop}%
                                             {status === "Clouds" && <Icon name="cloudy-outline" color='white'/>}
                                             {status === "Clear" && <Icon name="sunny-outline" color='white'/>}
                                             {status === "Snow" && <Icon name="snow-outline" color='white'/>}
@@ -128,7 +128,7 @@ const Fivedays = () =>{
                                             {status === "Drizzle" && <Icon name="rainy-outline" color='white'/>}
                                             {status === "Thunderstorm" && <Icon name="thunderstorm-outline" color='white'/>}
                                         </Text>
-                                        <View style={{flexDirection:'row'}}>
+                                        <View style={{flexDirection:'row',width:'30%',justifyContent:'flex-end'}}>
                                             <Text style={{ color: 'rgba(39, 145, 205, 1)' }}>
                                                 {Math.round(min)}°/
                                             </Text>
@@ -139,9 +139,9 @@ const Fivedays = () =>{
                                     </View>
 
 
-                                <View style={{height: '15%',width:'100%' ,flexDirection:'row',   justifyContent: 'space-between',borderBottomWidth: 2, borderBottomColor: 'grey'  }}>
-                                    <Text style={{fontSize:14, fontWeight:'bold',color:'white'}}> 내일 </Text>
-                                    <Text style={{fontSize:14, fontWeight:'bold',color: 'rgba(39, 145, 205, 1)' }}> {pop2}%
+                                <View style={styles.weather}>
+                                    <Text style={styles.day}> 내일 </Text>
+                                    <Text style={styles.pop}> {pop2}%
                                         {status2 === "Clouds" && <Icon name="cloudy-outline" color='white'/>}
                                         {status2 === "Clear" && <Icon name="sunny-outline" color='white'/>}
                                         {status2 === "Snow" && <Icon name="snow-outline" color='white'/>}
@@ -149,7 +149,7 @@ const Fivedays = () =>{
                                         {status2 === "Drizzle" && <Icon name="rainy-outline" color='white'/>}
                                         {status2 === "Thunderstorm" && <Icon name="thunderstorm-outline" color='white'/>}
                                     </Text>
-                                    <View style={{flexDirection:'row'}}>
+                                    <View style={{flexDirection:'row', width:'30%', justifyContent:'flex-end'}}>
                                         <Text style={{ color: 'rgba(39, 145, 205, 1)' }}>
                                             {Math.round(min2)}°/
                                         </Text>
@@ -160,9 +160,9 @@ const Fivedays = () =>{
 
                                 </View>
 
-                                <View style={{height: '15%',width:'100%' ,flexDirection:'row',   justifyContent: 'space-between',borderBottomWidth: 2, borderBottomColor: 'grey'  }}>
-                                    <Text style={{fontSize:14, fontWeight:'bold',color:'white'}}> {date3} </Text>
-                                    <Text style={{fontSize:14, fontWeight:'bold',color: 'rgba(39, 145, 205, 1)' }}> {pop3}%
+                                <View style={styles.weather}>
+                                    <Text style={styles.day}> {date3} </Text>
+                                    <Text style={styles.pop}> {pop3}%
                                         {status3 === "Clouds" && <Icon name="cloudy-outline" color='white'/>}
                                         {status3 === "Clear" && <Icon name="sunny-outline" color='white'/>}
                                         {status3 === "Snow" && <Icon name="snow-outline" color='white'/>}
@@ -170,7 +170,7 @@ const Fivedays = () =>{
                                         {status3 === "Drizzle" && <Icon name="rainy-outline" color='white'/>}
                                         {status3 === "Thunderstorm" && <Icon name="thunderstorm-outline" color='white'/>}
                                     </Text>
-                                    <View style={{flexDirection:'row'}}>
+                                    <View style={{flexDirection:'row', width:'30%', justifyContent:'flex-end'}}>
                                         <Text style={{ color: 'rgba(39, 145, 205, 1)' }}>
                                             {Math.round(min3)}°/
                                         </Text>
@@ -180,9 +180,9 @@ const Fivedays = () =>{
                                     </View>
                                 </View>
 
-                                <View style={{height: '15%',width:'100%' ,flexDirection:'row',   justifyContent: 'space-between',borderBottomWidth: 2, borderBottomColor: 'grey'  }}>
-                                    <Text style={{fontSize:14, fontWeight:'bold',color:'white'}}> {date4} </Text>
-                                    <Text style={{fontSize:14, fontWeight:'bold',color: 'rgba(39, 145, 205, 1)' }}> {pop4}%
+                                <View style={styles.weather}>
+                                    <Text style={styles.day}> {date4} </Text>
+                                    <Text style={styles.pop}> {pop4}%
                                         {status4 === "Clouds" && <Icon name="cloudy-outline" color='white'/>}
                                         {status4 === "Clear" && <Icon name="sunny-outline" color='white'/>}
                                         {status4 === "Snow" && <Icon name="snow-outline" color='white'/>}
@@ -190,7 +190,7 @@ const Fivedays = () =>{
                                         {status4 === "Drizzle" && <Icon name="rainy-outline" color='white'/>}
                                         {status4 === "Thunderstorm" && <Icon name="thunderstorm-outline" color='white'/>}
                                     </Text>
-                                    <View style={{flexDirection:'row'}}>
+                                    <View style={{flexDirection:'row',width:'30%',justifyContent:'flex-end'}}>
                                         <Text style={{ color: 'rgba(39, 145, 205, 1)' }}>
                                             {Math.round(min4)}°/
                                         </Text>
@@ -200,9 +200,9 @@ const Fivedays = () =>{
                                     </View>
                                 </View>
 
-                                <View style={{height: '15%',width:'100%' ,flexDirection:'row',   justifyContent: 'space-between',borderBottomWidth: 2, borderBottomColor: 'grey'  }}>
-                                    <Text style={{fontSize:14, fontWeight:'bold',color:'white'}}> {date5} </Text>
-                                    <Text style={{fontSize:14, fontWeight:'bold',color: 'rgba(39, 145, 205, 1)' }}> {pop5}%
+                                <View style={styles.weather}>
+                                    <Text style={styles.day}> {date5} </Text>
+                                    <Text style={styles.pop}> {pop5}%
                                         {status5 === "Clouds" && <Icon name="cloudy-outline" color='white'/>}
                                         {status5 === "Clear" && <Icon name="sunny-outline" color='white'/>}
                                         {status5 === "Snow" && <Icon name="snow-outline" color='white'/>}
@@ -210,7 +210,7 @@ const Fivedays = () =>{
                                         {status5 === "Drizzle" && <Icon name="rainy-outline" color='white'/>}
                                         {status5 === "Thunderstorm" && <Icon name="thunderstorm-outline" color='white'/>}
                                     </Text>
-                                    <View style={{flexDirection:'row'}}>
+                                    <View style={{flexDirection:'row',width:'30%',justifyContent:'flex-end'}}>
                                         <Text style={{ color: 'rgba(39, 145, 205, 1)' }}>
                                             {Math.round(min5)}°/
                                         </Text>
@@ -243,5 +243,26 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         backgroundColor: 'rgba(50, 50, 54)',
         padding: '10%'
+    },
+    weather: {
+        height: '15%',
+        width:'100%' ,
+        flexDirection:'row',
+        justifyContent: 'space-between',
+        borderBottomWidth: 2,
+        borderBottomColor: 'grey'
+    },
+    day:{
+        width:'30%',
+        fontSize:14,
+        fontWeight:'bold',
+        color:'white'
+    },
+    pop:{
+        width:'40%',
+        fontSize:14,
+        fontWeight:'bold',
+        color: 'rgba(39, 145, 205, 1)',
+        textAlign:'center'
     }
 })

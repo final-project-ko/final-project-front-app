@@ -7,6 +7,7 @@ import Mypage from "../../pages/mypage/Mypage";
 import {useNavigation} from "@react-navigation/native";
 import KoreaNewsNavigator from "../../pages/news/koreanewscategory/KoreaNewsNavigator";
 import GlobalNewsNavigator from "../../pages/news/globalnewscategory/GlobalNewsNavigator";
+import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -15,6 +16,7 @@ const BottomNavigator = () => {
   const currentDate = new Date();
   const formattedDate = ` ${currentDate.getMonth() + 1}월 ${currentDate.getDate()}일`;
   const navigation = useNavigation();
+
 
   return (
 

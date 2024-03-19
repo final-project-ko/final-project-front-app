@@ -1,15 +1,17 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { View, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Weather from '../../components/weatherCompo/WeatherAPI';
 import SwipeButtons from '../../components/button/SwipeableButton';
 import StringToButtons from '../../components/button/StringToButtons';
 import { Text } from 'react-native';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import {homeUrl} from "../../../ifconfig/Inet";
+import useStore from "../../../store";
 
 const Stack = createStackNavigator();
 
 const Home = () => {
-
 
 
   return (

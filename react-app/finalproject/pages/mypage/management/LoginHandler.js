@@ -21,24 +21,6 @@ const LoginHandler = () => {
         }
     };
 
-    // const kakaoLogin = async (code) => {
-    //     try {
-    //         const response = await axios.get(`http://${homeUrl}:8080/api/login/oauth/?code=${code}`);
-    //         const data = response.data;
-    //         asyncStorage.setItem("KtodayId", data.accessToken);
-    //         // localStorage에 accessToken 저장
-    //         // 계속 사용할 정보(예: 이름 등)은 AsyncStorage에 저장하십시오.
-    //         /* AsyncStorage.setItem("name", data.account.name); */
-    //         // 로그인이 성공하면 이동할 페이지
-    //         // navigate("/") 대신에 원하는 페이지로 이동하는 코드를 추가하십시오.
-    //         navigation.navigate('홈'); // 로그인 성공 시 홈페이지로 이동
-    //         // RNRestart.Restart();
-    //
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
-
     const kakaoLogin = async (code) => {
         try {
             const response = await fetch(`http://${homeUrl}:8080/api/login/oauth/?code=${code}`);
@@ -48,11 +30,24 @@ const LoginHandler = () => {
             const data = await response.json();
             asyncStorage.setItem("KtodayId", data.accessToken);
             navigation.navigate('홈');
+            navigation.navigate('Login');
+            navigation.navigate('홈');
         } catch (error) {
             console.log(error);
         }
     };
 
+
+    // // useEffect를 사용하여 AsyncStorage 값이 변경될 때마다 실행
+    // useEffect(() => {
+    //     const unsubscribe = navigation.addListener('focus', () => {
+    //         // 여기서 AsyncStorage의 값을 읽어올 수 있음
+    //         console.log("AsyncStorage 값이 변경되었습니다.");
+    //     });
+    //
+    //     // Clean up function
+    //     return unsubscribe;
+    // }, [navigation]);
 
 
 
