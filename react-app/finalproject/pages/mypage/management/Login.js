@@ -1,12 +1,11 @@
 import { Image, Linking, StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {useNavigation} from "@react-navigation/native";
-import {useEffect, useState} from "react";
+import {useEffect, useReducer, useState} from "react";
 import useStore from "../../../../store";
 import window from "@react-navigation/native/src/__mocks__/window";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {homeUrl} from "../../../../ifconfig/Inet";
 import loginHandler from "./LoginHandler";
-
 const Login = () => {
 
     const navigation = useNavigation();
@@ -16,6 +15,7 @@ const Login = () => {
 
     const [login,setLogin] = useState(false);
     const { userId, auth,userName,userEmail, setUserInfo } = useStore();
+
 
     const openKakaoAuth = () => {
         navigation.navigate("LoginHandler");
@@ -83,7 +83,7 @@ const Login = () => {
             }
         };
 
-        fetchData();
+        fetchData()
     }, []);
 
 
@@ -97,7 +97,7 @@ const Login = () => {
                 await AsyncStorage.removeItem("NtodayId");
                 setLogin(false);
                 console.log("고구마" + AsyncStorage);
-                navigation.navigate("홈");
+                navigation.navigate('홈');
             } catch (error) {
                 console.log("Error removing item from AsyncStorage:", error);
             }

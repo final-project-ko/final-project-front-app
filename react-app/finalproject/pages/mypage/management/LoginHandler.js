@@ -38,17 +38,6 @@ const LoginHandler = () => {
     };
 
 
-    // // useEffect를 사용하여 AsyncStorage 값이 변경될 때마다 실행
-    // useEffect(() => {
-    //     const unsubscribe = navigation.addListener('focus', () => {
-    //         // 여기서 AsyncStorage의 값을 읽어올 수 있음
-    //         console.log("AsyncStorage 값이 변경되었습니다.");
-    //     });
-    //
-    //     // Clean up function
-    //     return unsubscribe;
-    // }, [navigation]);
-
 
 
     return (

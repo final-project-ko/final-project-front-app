@@ -3,23 +3,28 @@ import {View, Text, TouchableOpacity, StyleSheet, Alert, ScrollView} from "react
 import useStore from "../../../store";
 import HTML from 'react-native-render-html';
 import {homeUrl} from "../../../ifconfig/Inet";
+import {useIsFocused} from "@react-navigation/native";
 
 const InquiryAnswer = () => {
     const [articles, setArticles] = useState([]);
     const { userId } = useStore();
+    const isFocused = useIsFocused();
 
     useEffect(() => {
-        const fetchArticles = async () => {
-            try {
-                const response = await fetch(`http://${homeUrl}:8080/api/qna/findInquiry/${userId}`);
-                const data = await response.json();
-                setArticles(data);
-            } catch (error) {
-                console.log("Error fetching data", error);
-            }
-        };
-        fetchArticles();
-    }, []);
+        if(isFocused){
+            const fetchArticles = async () => {
+                try {
+                    const response = await fetch(`http://${homeUrl}:8080/api/qna/findInquiry/${userId}`);
+                    const data = await response.json();
+                    setArticles(data);
+                } catch (error) {
+                    console.log("Error fetching data", error);
+                }
+            };
+            fetchArticles();
+        }
+
+    }, [isFocused]);
 
 
     return (
