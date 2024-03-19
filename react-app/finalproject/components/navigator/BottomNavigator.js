@@ -24,7 +24,7 @@ const BottomNavigator = () => {
   screenOptions={{
     tabBarStyle: {
       backgroundColor: '#323236', // Background color of the tab bar
-      height: '10%' // Height of the tab bar
+      // height: '10%' // Height of the tab bar
     },
     headerStyle: {
       backgroundColor: '#222326', // Header background color

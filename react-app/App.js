@@ -1,6 +1,6 @@
 // 라이브러리 임포트 목록 하단에 정리되어 있습니다.
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect } from 'react'; 
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import BottomNavigator from './finalproject/components/navigator/BottomNavigator';
@@ -20,15 +20,34 @@ import ShortNewsScreen from './finalproject/pages/shortpage/ShortNewsScreen';
 import { StatusBar } from 'expo-status-bar';
 
 
+const SplashScreen = ({ navigation }) => {
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.replace('BottomNavigator');
+    }, 1500); 
+  }, [navigation]);
+
+  return (
+    <View style={styles.splashContainer}>
+      <Image source={require('./assets/cup-dark.gif')} style={styles.image} />
+    </View>
+  );
+};
+
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-     <StatusBar backgroundColor="#1a2437" barStyle="light-content" />
+     <StatusBar barStyle="light-content" />
 
       <Stack.Navigator
          screenOptions={{ headerShown: false }}>
+
+          <Stack.Screen
+          name="Splash"
+          component={SplashScreen}
+          />
         <Stack.Screen
           name="BottomNavigator"
           component={BottomNavigator}
@@ -104,6 +123,8 @@ export default function App() {
   );
 }
 
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -111,6 +132,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  image: {
+    width: 200, 
+    height: 200,
+  },
+  splashContainer: {
+    flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    backgroundColor: '#323236', 
+  }
   // weather: {
   //   border: '1px solid black',
   //   width: '80%',
@@ -126,7 +157,11 @@ const styles = StyleSheet.create({
 /*
 ====================================
 
+
 라이브러리 임포트 목록
+
+react-native-splash-screen
+초반 스플래시 화면을 띄우는 패키지입니다.
 
 @react-navigation/bottom-tabs (v6.5.12):
 하단 탭 네비게이터를 제공하는 패키지입니다.

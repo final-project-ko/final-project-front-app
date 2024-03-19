@@ -8,6 +8,8 @@ import { dataString, dataString2, dataString3, dataString4, dataString5 } from '
 export default function Screen() {
 
   const navigation = useNavigation();
+  const currentDate = new Date();
+  const formattedDate = ` ${currentDate.getMonth() + 1}월 ${currentDate.getDate()}일, 오늘은?`;
 
     return (
           // ========================== 
@@ -33,14 +35,27 @@ export default function Screen() {
           // 따라서 간단한 터치 이벤트 처리에 적합합니다.
 
 
+
           <View style={styles.container}>
           <Swiper>
   
+
+
            {/* ===== 1번 쇼츠 */}
-          <View style={[styles.slideContainer, styles.slide1]}>
+
+
+           <View style={[styles.slideContainer, styles.slide1]}>
             {/* 내용 */}
-            <View>
-              <Text style={styles.text}>{dataString}</Text>
+            <View style={styles.titleContainer}>
+                <Text style={styles.articleText}>
+                  {formattedDate}
+                </Text>
+
+                <View style={styles.desContainer}>
+                <Text style={styles.descriptionFont}>
+                    {dataString}
+                </Text>
+                </View>
             </View>
 
             {/* 버튼 */}
@@ -51,15 +66,25 @@ export default function Screen() {
                 </View>
             </TouchableWithoutFeedback>
             </View>
+
+
 
 
            {/* ===== 2번 쇼츠 */}
-          <View style={[styles.slideContainer, styles.slide2]}>
 
 
+           <View style={[styles.slideContainer, styles.slide2]}>
             {/* 내용 */}
-            <View>
-              <Text style={styles.text}>{dataString2}</Text>
+            <View style={styles.titleContainer}>
+                <Text style={styles.articleText}>
+                  {formattedDate}
+                </Text>
+
+                <View style={styles.desContainer}>
+                <Text style={styles.descriptionFont}>
+                    {dataString2}
+                </Text>
+                </View>
             </View>
 
             {/* 버튼 */}
@@ -70,13 +95,25 @@ export default function Screen() {
                 </View>
             </TouchableWithoutFeedback>
             </View>
+
+
 
 
            {/* ===== 3번 쇼츠 */}
-          <View style={[styles.slideContainer, styles.slide3]}>
+
+
+           <View style={[styles.slideContainer, styles.slide3]}>
             {/* 내용 */}
-            <View>
-              <Text style={styles.text}>{dataString3}</Text>
+            <View style={styles.titleContainer}>
+                <Text style={styles.articleText}>
+                  {formattedDate}
+                </Text>
+
+                <View style={styles.desContainer}>
+                <Text style={styles.descriptionFont}>
+                    {dataString3}
+                </Text>
+                </View>
             </View>
 
             {/* 버튼 */}
@@ -87,14 +124,26 @@ export default function Screen() {
                 </View>
             </TouchableWithoutFeedback>
             </View>
+
+
 
            {/* ===== 4번 쇼츠 */}
-          <View style={[styles.slideContainer, styles.slide4]}>
 
-          {/* 내용 */}
-          <View>
-            <Text style={styles.text}>{dataString4}</Text>
-          </View>
+
+           <View style={[styles.slideContainer, styles.slide4]}>
+            {/* 내용 */}
+            <View style={styles.titleContainer}>
+                <Text style={styles.articleText}>
+                  {formattedDate}
+                </Text>
+
+                <View style={styles.desContainer}>
+                <Text style={styles.descriptionFont}>
+                    {dataString4}
+                </Text>
+                </View>
+            </View>
+
             {/* 버튼 */}
             <TouchableWithoutFeedback
                 onPress={() => navigation.navigate('BottomNavigator')}>
@@ -104,13 +153,24 @@ export default function Screen() {
             </TouchableWithoutFeedback>
             </View>
 
-           {/* ===== 5번 쇼츠 */}
-          <View style={[styles.slideContainer, styles.slide5]}>
 
-          {/* 내용 */}
-          <View>
-            <Text style={styles.text}>{dataString5}</Text>
-          </View>
+
+           {/* ===== 5번 쇼츠 */}
+
+
+           <View style={[styles.slideContainer, styles.slide5]}>
+            {/* 내용 */}
+            <View style={styles.titleContainer}>
+                <Text style={styles.articleText}>
+                  {formattedDate}
+                </Text>
+
+                <View style={styles.desContainer}>
+                <Text style={styles.descriptionFont}>
+                    {dataString5}
+                </Text>
+                </View>
+            </View>
 
             {/* 버튼 */}
             <TouchableWithoutFeedback
@@ -129,10 +189,11 @@ export default function Screen() {
 
 
   
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#222326'
+    },
   slideContainer: {
     flex: 1,
     alignItems: 'center',
@@ -153,25 +214,40 @@ const styles = StyleSheet.create({
   slide5: {
     backgroundColor: '#323236',
   },
-  botton: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'transparent'
-  },
   closeButton: {
     position: 'absolute',
-    top: 60, // 상단으로부터의 거리
-    right: 30, // 우측으로부터의 거리
-    backgroundColor: 'transparent', // 배경색을 투명하게 설정
+    top: 60, 
+    right: 30, 
+    backgroundColor: 'transparent', 
   },
-  text: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: '#ffffff',
-    margin: 30,
-    fontSize: 18,
+  titleContainer: {
+    width: '96%',
+    height: 'auto',
+    borderColor: 'grey',
+    justifyContent: 'space-between',
+    paddingTop: '5%',
+    paddingBottom: '5%',
+    marginTop: 30,
+    marginRight: 'auto',
+    marginBottom: 10,
+    marginLeft: 'auto',
+    alignSelf: 'center',
+  },
+    articleText:{
+        marginLeft: 10,
+        margin: 5,
+        fontSize:20,
+        fontWeight:'bold',
+        color:'rgba(74,185,248,1)',
 
-  }
+    },
+    descriptionFont:{
+        margin: 20,
+        fontSize:16,
+        color:'white',
+        // fontWeight:'bold',
+              // borderBottomWidth: 2,
+              borderTopWidth:2,
+              borderColor:'grey',
+    }
 });
