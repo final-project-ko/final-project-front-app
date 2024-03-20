@@ -7,7 +7,6 @@ import Mypage from "../../pages/mypage/Mypage";
 import {useNavigation} from "@react-navigation/native";
 import KoreaNewsNavigator from "../../pages/news/koreanewscategory/KoreaNewsNavigator";
 import GlobalNewsNavigator from "../../pages/news/globalnewscategory/GlobalNewsNavigator";
-import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -25,12 +24,10 @@ const BottomNavigator = () => {
   screenOptions={{
     tabBarStyle: {
       backgroundColor: '#323236', // Background color of the tab bar
-      height: '10%' // Height of the tab bar
+      // height: '10%' // Height of the tab bar
     },
     headerStyle: {
       backgroundColor: '#222326', // Header background color
-      height: 130, // Header height
-
     },
     headerTitleStyle: {
       color: '#ffffff', // Header text color

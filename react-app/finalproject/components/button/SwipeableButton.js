@@ -17,16 +17,22 @@ export default class SwipeButtons extends React.Component {
     }
   }
 
+  // handleSwipeSuccess = () => {
+  //   // onSwipeSuccess prop (Swipesuccessfully)를 호출합니다.
+  //   if (this.props.Swipesuccessfully) {
+  //     this.props.Swipesuccessfully();
+  //   }
+  // }
 
   render() {
     const { showButton } = this.state;
-    const { message, backgroundSource, widthsize } = this.props; // Prop으로 message와 backgroundSource를 받아옵니다.
+    const { message, backgroundSource, widthsize, Swipesuccessfully } = this.props; // Prop으로 message와 backgroundSource를 받아옵니다.
 
     return (
       <View>
         {showButton && (
           <ImageBackground
-            source={backgroundSource} // Use the passed backgroundSource prop
+            source={backgroundSource}
             style={{
               height: 70, // 배경 바 높이
               borderRadius: 15, // 배경 바 시작점 모서리 둥글게
@@ -40,6 +46,7 @@ export default class SwipeButtons extends React.Component {
             }}
           >
             <SwipeButton
+              onSwipeSuccess={Swipesuccessfully}
               containerStyles={{
                 height: 70,
                 borderRadius: 18, // SwipeButton도 같은 borderRadius 적용
@@ -61,7 +68,6 @@ export default class SwipeButtons extends React.Component {
               enableReverseSwipe={true} // 오른쪽에서 왼쪽으로 스와이프(=리버스 스와이프)
               disabled={false} // 비활성화 상태
               disabledRailBackgroundColor={'#666666'} // 비활성화시 색상
-              onSwipeSuccess={this.handleSwipe} // 스와이프 성공 시 처리할 함수
             >
             </SwipeButton>
           </ImageBackground>
