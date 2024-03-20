@@ -25,6 +25,8 @@ const KBusinessAll = () => {
     }, [business]);
 
     const renderArticles = () => {
+        if (!businessArticles) return null;
+
         const itemsPerRow = 2;
         const rows = [];
         for (let i = 0; i < businessArticles.length; i += itemsPerRow) {

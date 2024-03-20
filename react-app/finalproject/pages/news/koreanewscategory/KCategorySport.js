@@ -25,6 +25,8 @@ const KSportAll = () =>{
     }, [sports]);
 
     const renderArticles = () => {
+        if (!sportsArticles) return null;
+
         const itemsPerRow = 2;
         const rows = [];
         for (let i = 0; i < sportsArticles.length; i += itemsPerRow) {

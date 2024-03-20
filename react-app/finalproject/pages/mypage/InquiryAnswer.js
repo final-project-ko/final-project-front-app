@@ -32,25 +32,34 @@ const InquiryAnswer = () => {
             <ScrollView style={styles.scrollViews}>
                 {articles.length > 0 ? (
                     articles.map((article, index) => (
-                        <View key={index} style={styles.inquiryOne}>
+                        <>
+                            <Text style={{color:'grey'}}>{index+1}번 문의</Text>
+                            <View key={index} style={styles.inquiryOne}>
 
-                            <View style={{borderBottomWidth: 1, borderColor:'grey', marginBottom:10}}>
-                                <Text>{article.inquiryTitle}</Text>
+                                <View style={{marginBottom:10, flexDirection:'row', justifyContent:'space-between'}}>
+                                    <Text style={{fontSize:17, fontWeight:'bold'}}>{article.inquiryTitle}</Text>
+                                    <Text style={{fontSize:11,color:'grey'}}>{article.inquiryDate}</Text>
+                                </View>
+
+                                <View style={{ marginBottom:10}}>
+                                    <HTML source={{ html: article.inquiryContent }} />
+                                </View>
+
+                                <View style={styles.answer}>
+                                    {article.replyText ? (
+                                            <View style={{flexDirection:'row'}}>
+                                                <Text style={{fontSize:13, color:'grey'}}>운영진 : </Text>
+                                                <Text>{article.replyText}</Text>
+                                            </View>
+
+                                    ) : (
+                                        <Text style={{color:'grey'}}>답변 기다리는 중...</Text>
+                                    )}
+                                </View>
+
                             </View>
+                        </>
 
-                            <View style={{borderBottomWidth: 1, borderColor:'grey', marginBottom:10}}>
-                                <HTML source={{ html: article.inquiryContent }} />
-                            </View>
-
-                            <View>
-                                {article.replyText ? (
-                                    <Text>{`답변 : ${article.replyText}`}</Text>
-                                ) : (
-                                    <Text>미작성</Text>
-                                )}
-                            </View>
-
-                        </View>
                     ))
                 ) : (
                     <Text>No articles found</Text>
@@ -82,11 +91,18 @@ const styles = StyleSheet.create({
         padding:'5%',
     },
     inquiryOne:{
-        backgroundColor:'white',
-        borderWidth:1,
+        backgroundColor:'rgba(173,209,230, 1)',
         borderColor:'grey',
         marginBottom:'5%',
-        borderRadius:5
+        marginTop:5,
+        borderRadius:10,
+        padding:10
+    },
+    answer:{
+        backgroundColor:'white',
+        borderRadius:5,
+        padding:10
+
     }
 
 })

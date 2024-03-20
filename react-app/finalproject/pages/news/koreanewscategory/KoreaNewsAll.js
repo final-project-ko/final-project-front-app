@@ -74,7 +74,7 @@ const KoreaNewsAll =()=> {
                             showsHorizontalScrollIndicator={false}>
 
 
-                    {businessArticles.map((article, index) => (
+                    {businessArticles?.map((article, index) => (
                         <TouchableOpacity onPress={() => navigation.navigate("DetailNews", { article, businessArticles})} key={index}>
                             <View style={styles.content}>
                                 <Image source={{uri: article.image}} style={styles.image}/>
@@ -92,7 +92,7 @@ const KoreaNewsAll =()=> {
                 <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
                             showsHorizontalScrollIndicator={false}>
 
-                    {entertainmentArticles.map((article, index) => (
+                    {entertainmentArticles?.map((article, index) => (
                         <TouchableOpacity onPress={() => navigation.navigate("DetailNews", { article, entertainmentArticles})} key={index}>
                             <View style={styles.content}>
                                 <Image source={{uri: article.image}} style={styles.image}/>
@@ -110,7 +110,7 @@ const KoreaNewsAll =()=> {
                 <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
                             showsHorizontalScrollIndicator={false}>
 
-                    {techArticles.map((article, index) => (
+                    {techArticles?.map((article, index) => (
                         <TouchableOpacity onPress={() => navigation.navigate("DetailNews", { article, techArticles})} key={index}>
                             <View style={styles.content}>
                                 <Image source={{uri: article.image}} style={styles.image}/>
@@ -128,7 +128,7 @@ const KoreaNewsAll =()=> {
                 <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
                             showsHorizontalScrollIndicator={false}>
 
-                    {scienceArticles.map((article, index) => (
+                    {scienceArticles?.map((article, index) => (
                         <TouchableOpacity onPress={() => navigation.navigate("DetailNews", { article, scienceArticles})} key={index}>
                             <View style={styles.content}>
                                 <Image source={{uri: article.image}} style={styles.image}/>
@@ -146,7 +146,7 @@ const KoreaNewsAll =()=> {
                 <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
                             showsHorizontalScrollIndicator={false}>
 
-                    {sportsArticles.map((article, index) => (
+                    {sportsArticles?.map((article, index) => (
                         <TouchableOpacity onPress={() => navigation.navigate("DetailNews", { article, sportsArticles})} key={index}>
                             <View style={styles.content}>
                                 <Image source={{uri: article.image}} style={styles.image}/>
@@ -164,7 +164,7 @@ const KoreaNewsAll =()=> {
                 <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
                             showsHorizontalScrollIndicator={false}>
 
-                    {healthArticles.map((article, index) => (
+                    {healthArticles?.map((article, index) => (
                         <TouchableOpacity onPress={() => navigation.navigate("DetailNews", { article, healthArticles})} key={index}>
                             <View style={styles.content}>
                                 <Image source={{uri: article.image}} style={styles.image}/>

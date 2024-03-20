@@ -25,6 +25,8 @@ const KEntertainmentAll = () =>{
     }, [entertainment]);
 
     const renderArticles = () => {
+        if (!entertainmentArticles) return null;
+
         const itemsPerRow = 2;
         const rows = [];
         for (let i = 0; i < entertainmentArticles.length; i += itemsPerRow) {
