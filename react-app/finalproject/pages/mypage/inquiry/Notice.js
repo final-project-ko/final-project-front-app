@@ -108,8 +108,10 @@ const Notice = () => {
                             </View>
 
                             {visibleContentIndex === index && (
-                                <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center', marginTop:'5%'}}>
-                                    <HTML  tagsStyles={tagsStyles} source={{ html: article.notice_content }} />
+                                <View style={styles.inquiryOne}>
+                                    <View style={styles.inquiryTwo}>
+                                        <HTML  tagsStyles={tagsStyles} source={{ html: article.notice_content }} />
+                                    </View>
                                 </View>
                             )}
                         </TouchableOpacity>
@@ -225,13 +227,25 @@ const styles = StyleSheet.create({
     mypage:{
         width:'25%',
         alignItems:'center'
+    },
+    inquiryOne:{
+        backgroundColor:'rgba(173,209,230, 1)',
+        borderColor:'grey',
+        margin: 10,
+        borderRadius:10,
+        padding:5,
+    },
+    inquiryTwo:{
+        backgroundColor:'white',
+        borderRadius:10,
+        padding:10,
     }
 
 });
 
 const tagsStyles = {
     p: {
-        color: 'white',
+        color: 'grey',
         fontSize: 13,
     },
 };

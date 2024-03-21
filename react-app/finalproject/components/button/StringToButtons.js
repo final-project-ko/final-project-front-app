@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
+import {homeUrl} from "../../../ifconfig/Inet";
 
 const SplitKeywords = ({ text }) => {
   // 키워드를 , 단위로 나눕니다
@@ -29,8 +30,35 @@ const SplitKeywords = ({ text }) => {
 };
 
 const StringToButtons = () => {
+
+  const [keywordNews, setKeyword] = useState({});
+
+  useEffect(() => {
+    const findKeywordNews = async () => {
+      try {
+        const responseKeyword = await fetch(`http://${homeUrl}:8080/api/AINews/keywordNews/${1}`)
+        const dataKeyword = await responseKeyword.json();
+        setKeyword(dataKeyword);
+      } catch (error){
+        console.log("error keyword", error);
+      }
+    };
+    findKeywordNews();
+  }, []);
+
+
+  const keywordButtons = [];
+  for (let i = 1; i <= 10; i++){
+    const keyword = keywordNews[`keyword${i}`];
+    if (keyword){
+      keywordButtons.push(keyword);
+    }
+  }
+
   // 키워드 ai 출력 결과 (= ,(쉼표)로 나눠진 하나의 문자열이어야 합니다)
-  const stringToSplit = ' 물고기, 고양이, 강아지, 토끼, 거북이, 햄스터, 새, 도마뱀, 금붕어, 파충류 ';
+
+  const stringToSplit = keywordButtons.join(',');
+
 
   return (
     <View>

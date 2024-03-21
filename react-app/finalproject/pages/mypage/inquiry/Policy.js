@@ -1,12 +1,14 @@
 import {ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {useNavigation} from "@react-navigation/native";
 import {Ionicons} from "@expo/vector-icons";
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {homeUrl} from "../../../../ifconfig/Inet";
 
 
 const Policy = () => {
 
     const navigation = useNavigation();
+
 
     return(
 

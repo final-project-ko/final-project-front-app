@@ -15,11 +15,14 @@ import React, {useEffect, useState} from "react";
 import {Ionicons} from "@expo/vector-icons";
 import {homeUrl} from "../../../ifconfig/Inet";
 import useStore from "../../../store";
+import {useNavigation} from "@react-navigation/native";
 
 const DetailNews = ({ route })=>{
 
     const {article} = route.params;
     const {userId, userEmail} = useStore();
+    const navigation = useNavigation();
+    console.log("호호"+ article.aidescription);
 
     const [isBookmarked, setIsBookmarked] = useState(false);
 
@@ -214,11 +217,21 @@ const DetailNews = ({ route })=>{
     };
     /*====================================================================================================*/
 
+    const urlPress = (url) => {
+        Linking.openURL(url).catch((err) => console.error('링크를 열 수 없습니다.', err));
+    };
+
     return(
         <>
             <StatusBar />
-            <View style={styles.container}>
 
+            <View style={styles.container}>
+                <View style={{ flexDirection: 'row', paddingLeft: '5%', paddingBottom: 10, width: '100%' }}>
+                    <TouchableOpacity onPress={() => navigation.goBack()} style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <Ionicons name="chevron-back-outline" size={30} color={"#007AFF"} />
+                        <Text style={{ color: '#007AFF', marginLeft: 5}}>뒤로가기</Text>
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.content}>
                     <View style={styles.bookmarkPoint}>
                         <TouchableOpacity
@@ -243,7 +256,7 @@ const DetailNews = ({ route })=>{
 
                         <View style={styles.desContainer}>
                             <Text style={styles.descriptionFont}>
-                                {article.description}
+                                {article.aidescription}
                             </Text>
                         </View>
 
@@ -329,7 +342,11 @@ const DetailNews = ({ route })=>{
                 </View>
 
                 <View style={styles.goUrl}>
-                    <SwipeButtons message="계속 읽어보기" backgroundSource={require('../../../assets/SwipeBar_1loop.gif')} widthsize={320} article={article.url} />
+                    <SwipeButtons message="계속 읽어보기"
+                                  backgroundSource={require('../../../assets/SwipeBar_1loop.gif')}
+                                  widthsize={320}
+                                  Swipesuccessfully={() => urlPress(article.url)}
+                    />
                 </View>
 
             </View>

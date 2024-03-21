@@ -111,10 +111,7 @@ export default function App() {
           component={ShortNewsScreen}
         />
 
-        {/*<Stack.Screen*/}
-        {/*    name="Management"*/}
-        {/*    component={Management}*/}
-        {/*/>*/}
+
 
       </Stack.Navigator>
     </NavigationContainer>
