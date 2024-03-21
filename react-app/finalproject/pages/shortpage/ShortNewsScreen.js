@@ -75,7 +75,7 @@ export default function Screen() {
 
                         <View style={styles.desContainer}>
                             <Text style={styles.descriptionFont}>
-                                {dataString2}
+                                {summary.summaryNews2}
                             </Text>
                         </View>
                     </View>
@@ -104,7 +104,7 @@ export default function Screen() {
 
                         <View style={styles.desContainer}>
                             <Text style={styles.descriptionFont}>
-                                {dataString3}
+                                {summary.summaryNews3}
                             </Text>
                         </View>
                     </View>
@@ -132,7 +132,7 @@ export default function Screen() {
 
                         <View style={styles.desContainer}>
                             <Text style={styles.descriptionFont}>
-                                {dataString4}
+                                {summary.summaryNews4}
                             </Text>
                         </View>
                     </View>
@@ -160,7 +160,7 @@ export default function Screen() {
 
                         <View style={styles.desContainer}>
                             <Text style={styles.descriptionFont}>
-                                {dataString5}
+                                {summary.summaryNews5}
                             </Text>
                         </View>
                     </View>
