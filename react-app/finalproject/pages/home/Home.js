@@ -18,6 +18,10 @@ const Home = () => {
     navigation.navigate('ShortNewsScreen');
   };
 
+  const goNews = () => {
+    navigation.navigate('국내 뉴스');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.separator5} />
@@ -51,7 +55,7 @@ const Home = () => {
           message="밀어서 더 읽기"
           backgroundSource={require('../../../assets/SwipeBar_4loop.gif')}
           widthsize={300}
-          Swipesuccessfully={goShort}
+          Swipesuccessfully={goNews}
         />
       </View>
     </View>

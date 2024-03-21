@@ -59,7 +59,7 @@ const MypageNavigator =()=>{
             }}
         />
         <Tab.Screen
-            name="Management"
+            name="계정관리"
             component={Management}
             options={{
                 tabBarLabel: "계정관리",
@@ -120,7 +120,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
                         case 'InquiryAnswer':
                             iconName = 'mail-open-outline';
                             break;
-                        case 'Management':
+                        case '계정관리':
                             iconName = 'settings-outline';
                             break;
                         default:
