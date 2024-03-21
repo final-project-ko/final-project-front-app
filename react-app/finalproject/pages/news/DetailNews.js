@@ -35,16 +35,6 @@ const DetailNews = ({ route })=>{
 
     const userCode = userId;
 
-
-    const showTransBtn = article.category.startsWith('us');
-
-    const [showTitleButton, setShowTitleButton] = useState(false);
-
-
-    const handleLanguageToggle = () => {
-        setShowTitleButton(!showTitleButton);
-    };
-
     /*====================================================================================================*/
 
     /* comment input 값 핸들러 */
@@ -236,36 +226,20 @@ const DetailNews = ({ route })=>{
             <StatusBar />
 
             <View style={styles.container}>
-                <View style={{width:'100%',flexDirection:'row', justifyContent:'space-between', paddingBottom:5}}>
-                    <View style={{ flexDirection: 'row', paddingLeft: '5%', paddingBottom: 10}}>
-                        <TouchableOpacity onPress={() => navigation.goBack()} style={{ flexDirection: 'row', alignItems: 'center' }}>
-                            <Ionicons name="chevron-back-outline" size={30} color={"#007AFF"} />
-                            <Text style={{ color: '#007AFF', marginLeft: 5}}>뒤로가기</Text>
-                        </TouchableOpacity>
-
-                    </View>
-                    {showTransBtn&& (
-                        <View style={styles.containerToggle}>
-                            <TouchableOpacity style={[styles.switch, showTitleButton && styles.switchOn]} onPress={handleLanguageToggle}>
-                                <View style={[styles.slider, showTitleButton && styles.sliderOn]} />
-                            </TouchableOpacity>
-                            <Text style={styles.text}>{showTitleButton ? 'ENG' : 'KOR'}</Text>
-                        </View>
-                    )}
+                <View style={{ flexDirection: 'row', paddingLeft: '5%', paddingBottom: 10, width: '100%' }}>
+                    <TouchableOpacity onPress={() => navigation.goBack()} style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <Ionicons name="chevron-back-outline" size={30} color={"#007AFF"} />
+                        <Text style={{ color: '#007AFF', marginLeft: 5}}>뒤로가기</Text>
+                    </TouchableOpacity>
                 </View>
-
                 <View style={styles.content}>
-
-
-                        <View style={styles.bookmarkPoint}>
-                            <TouchableOpacity
-                                onPress={() => {handlePress()}} style={{position:'absolute', right:5, top:5}}
-                            >
-                                <Ionicons name="bookmark-outline" size={25} color={isBookmarked ? 'orange' : "white"}/>
-                            </TouchableOpacity>
-                        </View>
-
-
+                    <View style={styles.bookmarkPoint}>
+                        <TouchableOpacity
+                            onPress={() => {handlePress()}} style={{position:'absolute', right:5, top:5}}
+                        >
+                            <Ionicons name="bookmark-outline" size={25} color={isBookmarked ? 'orange' : "white"}/>
+                        </TouchableOpacity>
+                    </View>
 
                     <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{alignItems:'center'}}   persistentScrollbar={true}>
                     <Image source={{uri: article.image}} style={styles.image}/>
@@ -281,16 +255,9 @@ const DetailNews = ({ route })=>{
 
 
                         <View style={styles.desContainer}>
-                            {showTitleButton? (
-                                <Text style={styles.descriptionFont}>
-                                    {article.transdescription}
-                                </Text>
-                            ):(
-                                <Text style={styles.descriptionFont}>
-                                    {article.aidescription}
-                                </Text>
-                            )}
-
+                            <Text style={styles.descriptionFont}>
+                                {article.aidescription}
+                            </Text>
                         </View>
 
                         <View style={{width:'100%',borderBottomWidth:1,borderColor:'white',marginTop:40, marginBottom:20}}>
@@ -453,38 +420,5 @@ const styles = StyleSheet.create({
         alignItems:'center',
         marginTop:'10%',
         justifyContent:'space-between'
-    },
-    containerToggle: {
-        paddingRight:'5%',
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    switch: {
-        width: 60,
-        height: 34,
-        borderRadius: 17,
-        backgroundColor: '#ccc',
-        padding: 2,
-    },
-    switchOn: {
-        backgroundColor: '#2196F3',
-    },
-    slider: {
-        width: 30,
-        height: 30,
-        borderRadius: 15,
-        backgroundColor: 'white',
-        position: 'relative',
-        left: 0,
-        top: 2,
-    },
-    sliderOn: {
-        left: 30,
-    },
-    text: {
-        marginLeft: 8,
-        fontSize: 15,
-        fontWeight: 'bold',
-        color:'white'
-    },
+    }
 })
