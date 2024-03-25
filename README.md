@@ -22,8 +22,39 @@
 - React Native
 
 
+
 ## 아키텍처
 
 ![아키텍처](https://github.com/final-project-ko/final-project-front-app/assets/60908387/1014e5fc-bba9-4849-b9ef-86f4068a234f)
 
 
+React Navigation에서 사용된 각 네비게이터와 해당하는 스크린의 요약입니다:
+
+### Stack.Navigator:
+- **SplashScreen:** 앱이 시작될 때 보여지는 스플래시 화면
+- **BottomNavigator:** 하단 탭 네비게이터
+- **Weather:** 날씨 정보 화면
+- **DetailWeather:** 날씨 상세 정보 화면
+- **DetailNews:** 뉴스 상세 정보 화면
+- **MypageNavigator:** 마이페이지 탭 네비게이터
+- **Callcenter:** 고객센터 화면
+- **Questions:** 질문 목록 화면
+- **Notice:** 공지사항 화면
+- **Policy:** 약관 화면
+- **Login:** 로그인 화면
+- **LoginHandler:** 로그인 처리 화면
+- **NaverHandeler:** 네이버 처리 화면
+- **DetailBookmark:** 북마크 상세 화면
+- **ShortNewsScreen:** 짧은 뉴스 화면
+
+### BottomTab.Navigator:
+- **홈 탭**
+- **국내 뉴스 탭**
+- **해외 뉴스 탭**
+- **마이 페이지 탭**
+
+### Tab.Navigator:
+- **Inquiry:** 문의 화면
+- **Bookmark:** 북마크 화면
+- **InquiryAnswer:** 문의 답변 화면
+- **계정관리:** 계정 관리 화면
