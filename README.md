@@ -1,4 +1,4 @@
-# 오늘의 해외 뉴스 앱
+# 오늘의 뉴스 앱
 
 ## 프로젝트 개요
 
@@ -28,9 +28,9 @@
 - OpenAI
 - LangChain
 
-**기타:**
-- GitHub (버전 관리 및 협업)
 
 ## 아키텍처
 
-![아키텍처](아키텍처_이미지_URL)
+![아키텍처](https://github.com/final-project-ko/final-project-front-app/assets/60908387/1014e5fc-bba9-4849-b9ef-86f4068a234f)
+
+
