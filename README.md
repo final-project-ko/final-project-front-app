@@ -4,7 +4,7 @@
 
 **프로젝트명:** 오늘의 해외 뉴스  
 **개발 언어:** React Native  
-**백엔드:** Spring Boot, MySQL  
+
 
 ## 기능
 
@@ -20,13 +20,6 @@
 
 **프론트엔드:**
 - React Native
-
-**백엔드:**
-- Spring Boot
-- MySQL
-- JPA
-- OpenAI
-- LangChain
 
 
 ## 아키텍처
