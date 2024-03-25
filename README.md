@@ -27,8 +27,8 @@
 
 ![아키텍처](https://github.com/final-project-ko/final-project-front-app/assets/60908387/10d220e6-f3e0-4cbd-b3b1-16ecb638cbd5)
 
-
-React Navigation에서 사용된 각 네비게이터와 해당하는 스크린의 요약입니다:
+##
+## React Navigation에서 사용된 각 네비게이터와 해당하는 스크린의 요약입니다:
 
 ### Stack.Navigator:
 - **SplashScreen:** 앱이 시작될 때 보여지는 스플래시 화면
