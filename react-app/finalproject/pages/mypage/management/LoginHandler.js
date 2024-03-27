@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, Text, ActivityIndicator } from 'react-native';
 import WebView from 'react-native-webview';
-import axios from 'axios';
 import { homeUrl } from "../../../../ifconfig/Inet";
 import {useNavigation} from "@react-navigation/native";
 import asyncStorage from "@react-native-async-storage/async-storage/src/AsyncStorage";
@@ -41,7 +40,7 @@ const LoginHandler = () => {
 
     const kakaoLogin = async (code) => {
         try {
-            const response = await fetch(`http://${homeUrl}:8080/api/login/oauth/?code=${code}`);
+            const response = await fetch(`http://${homeUrl}:8080/api/login/oauth/?code=${code}$name=app`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }

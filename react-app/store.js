@@ -1,4 +1,4 @@
-import create from 'zustand';
+import {create} from 'zustand';
 
 const useStore = create((set) => ({
     userId: '', // 초기 상태 설정
