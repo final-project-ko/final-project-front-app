@@ -109,9 +109,11 @@ const DetailWeather = () =>{
                 <>
                     <View style={styles.topContainer}>
                         <View style={styles.inContainer}>
-                            <View>
+
+                            <View style={{width:'50%'}}>
                                 <Text style={styles.nowTemp}> {Math.round(temp)}° </Text>
                             </View>
+
                             <View style={styles.textContainer}>
                                 <Text style={{fontSize:20, fontWeight:'bold'}}>서울특별시</Text>
                                 <Text style={{fontWeight:400}}> {currentWeather} </Text>
@@ -119,11 +121,14 @@ const DetailWeather = () =>{
                                     최고:<Text style={{color:'red'}}>{Math.round(max)}°</Text>
                                 </Text>
                             </View>
+
                         </View>
                     </View>
+
                     <View style={styles.summaryContainer}>
                         <Text style={{fontSize:15, fontWeight:'bold'}}> {summary} </Text>
                     </View>
+
                     <View style={styles.weekContainer}>
                         <Fivedays/>
                     </View>
@@ -170,19 +175,15 @@ const styles = StyleSheet.create({
     },
     topContainer: {
         position: "absolute",
-        top: "5%",
+        top: "6%",
         width: "90%",
         height: "25%",
         alignItems: "center",
         backgroundColor: 'rgba(255, 255, 255, 0.6)',
         borderRadius: 30,
-        // shadowColor: 'black', // 그림자 색상
-        // shadowOffset: { width: 0, height: 2 }, // 그림자 위치
-        // shadowOpacity: 0.5, // 그림자 투명도
-        // shadowRadius: 4, // 그림자 크기
     },
     inContainer: {
-        width: "60%",
+        width: "80%",
         height: "100%",
         display: "flex",
         flexDirection: "row",
@@ -191,7 +192,8 @@ const styles = StyleSheet.create({
     },
     textContainer: {
         flexDirection: "column",
-        justifyContent: "center"
+        justifyContent: "center",
+        width:'50%'
     },
     nowTemp: {
         fontSize: 50,

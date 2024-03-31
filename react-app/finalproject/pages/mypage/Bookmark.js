@@ -4,7 +4,7 @@ import useStore from "../../../store";
 import React, {useEffect, useState} from "react";
 import {homeUrl} from "../../../ifconfig/Inet";
 import HTML from "react-native-render-html";
-import {useNavigation} from "@react-navigation/native";
+import {useIsFocused, useNavigation} from "@react-navigation/native";
 
 const Bookmark = () => {
     const navigation = useNavigation();
@@ -13,24 +13,29 @@ const Bookmark = () => {
 
     const [bookmark, setBookmark] = useState([]);
 
+    const isFocused = useIsFocused();
+
     useEffect(() => {
-        if(userId) {
-            const bookmarkList = async () => {
-                await fetch(`http://${homeUrl}:8080/api/bookmark/find/${userId}`, {
-                    method: "GET",
-                }).then(res => res.json())
-                    .then(data => {
-                        setBookmark(data);
+        if (isFocused) {
+            if(userId) {
+                const bookmarkList = async () => {
+                    await fetch(`http://${homeUrl}:8080/api/bookmark/find/${userId}`, {
+                        method: "GET",
+                    }).then(res => res.json())
+                        .then(data => {
+                            setBookmark(data);
 
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    });
+                        })
+                        .catch(error => {
+                            console.log(error);
+                        });
 
-            };
-            bookmarkList();
+                };
+                bookmarkList();
+            }
+
         }
-    },[userId]);
+    }, [isFocused]);
 
 
 

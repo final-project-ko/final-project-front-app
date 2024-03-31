@@ -25,6 +25,8 @@ const KTechnologyAll = () =>{
     }, [technology]);
 
     const renderArticles = () => {
+        if (!techArticles) return null;
+
         const itemsPerRow = 2;
         const rows = [];
         for (let i = 0; i < techArticles.length; i += itemsPerRow) {

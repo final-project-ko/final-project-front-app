@@ -1,16 +1,26 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { View, StyleSheet } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
+// import { createStackNavigator } from '@react-navigation/stack';
 import Weather from '../../components/weatherCompo/WeatherAPI';
 import SwipeButtons from '../../components/button/SwipeableButton';
 import StringToButtons from '../../components/button/StringToButtons';
 import { Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-const Stack = createStackNavigator();
+// const Stack = createStackNavigator();
+
 
 const Home = () => {
 
+  const navigation = useNavigation();
 
+  const goShort = () => {
+    navigation.navigate('ShortNewsScreen');
+  };
+
+  const goNews = () => {
+    navigation.navigate('국내 뉴스');
+  };
 
   return (
     <View style={styles.container}>
@@ -22,7 +32,12 @@ const Home = () => {
       <View style={styles.separator10} />
 
       {/* 요약기사 읽기 슬라이드 */}
-      <SwipeButtons message="오늘은?" backgroundSource={require('../../../assets/SwipeBar_1loop.gif')} widthsize={320} />
+      <SwipeButtons
+        message="오늘은?"
+        backgroundSource={require('../../../assets/SwipeBar_1loop.gif')}
+        widthsize={320}
+        Swipesuccessfully={goShort}
+      />
       {/* 칸에 여백 */}
       <View style={styles.separator10} />
       <View style={styles.keywordbox}>
@@ -35,7 +50,13 @@ const Home = () => {
         {/* 칸에 여백 */}
         <View style={styles.separator10} />
         {/* 기사 상세보기 슬라이드 */}
-        <SwipeButtons message="밀어서 더 읽기" backgroundSource={require('../../../assets/SwipeBar_4loop.gif')} widthsize={300} />
+
+        <SwipeButtons
+          message="밀어서 더 읽기"
+          backgroundSource={require('../../../assets/SwipeBar_4loop.gif')}
+          widthsize={300}
+          Swipesuccessfully={goNews}
+        />
       </View>
     </View>
   );

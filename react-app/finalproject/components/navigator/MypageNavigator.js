@@ -54,12 +54,12 @@ const MypageNavigator =()=>{
             options={{
                 tabBarLabel: "문의사항 답변",
                 tabBarIcon: () => (
-                    <Ionicons name="file-tray-stacked-outline" size={20} color={'white'}/>
+                    <Ionicons name="mail-open-outline" size={20} color={'white'}/>
                 ),
             }}
         />
         <Tab.Screen
-            name="Management"
+            name="계정관리"
             component={Management}
             options={{
                 tabBarLabel: "계정관리",
@@ -118,9 +118,9 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
                             iconName = 'bookmark-outline';
                             break;
                         case 'InquiryAnswer':
-                            iconName = 'file-tray-stacked-outline';
+                            iconName = 'mail-open-outline';
                             break;
-                        case 'Management':
+                        case '계정관리':
                             iconName = 'settings-outline';
                             break;
                         default:

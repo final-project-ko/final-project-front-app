@@ -25,6 +25,8 @@ const KScienceAll = () =>{
     }, [science]);
 
     const renderArticles = () => {
+        if (!scienceArticles) return null;
+
         const itemsPerRow = 2;
         const rows = [];
         for (let i = 0; i < scienceArticles.length; i += itemsPerRow) {

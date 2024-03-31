@@ -1,11 +1,14 @@
 
 
+<<<<<<< HEAD
+=======
+
+// export const homeUrl = "192.168.0.203";
+>>>>>>> 544072f9f5c57dfb11a02cf98b277251e75b7f88
 
 
 export const homeUrl = "192.168.0.159";
 
-// export const homeUrl = "172.30.1.51";
-// export const homeUrl = "172.30.1.86";
-// export const hunetUrl = "192.168.0.63";
+
 
 

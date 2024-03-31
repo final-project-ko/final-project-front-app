@@ -25,6 +25,8 @@ const KHealthAll = () =>{
     }, [health]);
 
     const renderArticles = () => {
+        if (!healthArticles) return null;
+
         const itemsPerRow = 2;
         const rows = [];
         for (let i = 0; i < healthArticles.length; i += itemsPerRow) {

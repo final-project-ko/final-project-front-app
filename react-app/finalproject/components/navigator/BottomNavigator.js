@@ -16,6 +16,7 @@ const BottomNavigator = () => {
   const formattedDate = ` ${currentDate.getMonth() + 1}월 ${currentDate.getDate()}일`;
   const navigation = useNavigation();
 
+
   return (
 
 <BottomTab.Navigator
@@ -23,12 +24,10 @@ const BottomNavigator = () => {
   screenOptions={{
     tabBarStyle: {
       backgroundColor: '#323236', // Background color of the tab bar
-      height: '10%' // Height of the tab bar
+      height: 100 // Height of the tab bar
     },
     headerStyle: {
       backgroundColor: '#222326', // Header background color
-      height: 130, // Header height
-
     },
     headerTitleStyle: {
       color: '#ffffff', // Header text color
@@ -44,7 +43,7 @@ const BottomNavigator = () => {
         style={{ marginRight: 20 }} // Adjust the right margin as needed
         onPress={() => {
           // Navigate to SettingsScreen or open settings modal
-            navigation.navigate("Management");
+            navigation.navigate("계정관리");
         }}
       />
     )

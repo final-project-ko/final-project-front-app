@@ -96,11 +96,9 @@ const Weather = () =>{
                             <>
                                 <Text> {summary} </Text>
                                 <View style={styles.weather}>
-                                    <>
-                                        <Text> {currentWeather} </Text>
+                                        {/*<Text> {currentWeather} </Text>*/}
                                         <Text style={styles.tempNum}> {Math.round(temp)} </Text>
                                         <Text style={styles.temp}>°C |°F</Text>
-                                    </>
                                 </View>
                             </>
 
@@ -116,14 +114,15 @@ export default Weather;
 
 const styles = StyleSheet.create({
     container: {
-        width: 320,
+        width: '100%',
         height: 170,
-        borderRadius: 15
+        borderRadius: 15,
+        alignItems:'center'
     },
     picture:{
         alignItems:'center',
         justifyContent: 'center',
-        width: 320,
+        width: '90%',
         height: 170,
         position: 'absolute',
     },
@@ -132,12 +131,15 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     temp: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold'
     },
     imgWrapper: {
         width:'100%',
         height:'100%',
         borderRadius: 20
+    },
+    weather:{
+        alignItems:'center'
     }
 })
