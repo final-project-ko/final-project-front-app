@@ -58,3 +58,10 @@
 - **Bookmark:** 북마크 화면
 - **InquiryAnswer:** 문의 답변 화면
 - **계정관리:** 계정 관리 화면
+
+## 애플리케이션 화면 (Application Screens)
+<div style="display: flex; justify-content: space-around;">
+    <img src="./a1.png" alt="" style="width: 25%; height: auto;">
+    <img src="./a2.jpg" alt="" style="width: 25%; height: auto;">
+    <img src="./a3.jpg" alt="" style="width: 25%; height: auto;">
+</div>
